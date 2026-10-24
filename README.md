@@ -1,4 +1,4 @@
-# Godot Discord Custom Rich Presence
+# Rich Presence Using Godot
 Parent Repository: Godot 4.6.X Minimal Template (v0.2.0)<br>
 Version: 0.1.0<br>
 Supported Engine Version: [4.7.2]<br>
