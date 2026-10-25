@@ -28,7 +28,9 @@ func _ready() -> void:
 	details_edit.text = presence_config.details
 	state_edit.text = presence_config.details
 	large_image_edit.text = presence_config.assets_large_image
-	enable_button.set_pressed_no_signal(presence_config.is_enabled)
+	
+	# This will only emit signal if true, because the default is already false
+	enable_button.set_pressed(presence_config.is_enabled)
 	
 	refresh()
 
