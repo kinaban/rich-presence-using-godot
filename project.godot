@@ -14,6 +14,7 @@ config/name="Rich Presence Using Godot"
 config/description="An app for showing custom Discord rich presence."
 config/version="0.1.0"
 config/tags=PackedStringArray("2d", "kinaban", "open_software")
+run/main_scene="uid://cafcm6m3aewf5"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="rich_presence_using_godot"
 config/features=PackedStringArray("4.7", "GL Compatibility")
