@@ -21,9 +21,16 @@ func _on_presence_config_change(new_presence_config: PresenceConfig) -> void:
 	have_changes = true
 
 
-func get_presence(unique_id: String) -> PresenceConfig:
+func get_presence(section: String) -> PresenceConfig:
 	var presence_config := PresenceConfig.new()
-	presence_config.unique_id = unique_id
+	presence_config.unique_id = section
+	
+	presence_config.app_id = str(config_file.get_value(section, APP_ID_KEY, ""))
+	presence_config.process_path = str(config_file.get_value(section, PROCESS_PATH_KEY, ""))
+	presence_config.details = str(config_file.get_value(section, DETAILS_KEY, ""))
+	presence_config.state = str(config_file.get_value(section, STATE_KEY, ""))
+	presence_config.assets_large_image = str(config_file.get_value(section, ASSETS_LARGE_IMAGE_KEY, ""))
+	presence_config.is_enabled = Parser.get_bool(config_file.get_value(section, ENABLE_KEY, 0))
 	
 	presence_config.changed.connect(_on_presence_config_change.bind(presence_config))
 	
