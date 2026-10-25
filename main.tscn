@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cafcm6m3aewf5"]
 
 [ext_resource type="Script" uid="uid://dvria4v4ayew2" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Resource" uid="uid://dhg8yctepbdw1" path="res://src/profile/profile_config_resource.tres" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c540tykisoxl0" path="res://src/resource_plus/config_resource_preloader.gd" id="3_h2yge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sykd2"]
 bg_color = Color(0.21176471, 0.23921569, 0.2901961, 1)
@@ -88,6 +90,10 @@ custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Enable"
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=700522098]
+resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m")]]
+script = ExtResource("3_h2yge")
 
 [connection signal="pressed" from="MarginContainer/content/RefreshProcessButton" to="." method="_on_refresh_process_button_pressed"]
 [connection signal="toggled" from="MarginContainer/content/EnableButton" to="." method="_on_enable_button_toggled"]
