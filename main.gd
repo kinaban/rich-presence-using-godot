@@ -5,6 +5,7 @@ var profile_config_resource := preload("uid://dhg8yctepbdw1")
 
 var discord_presence : DiscordRichPresence
 var presence_config := profile_config_resource.get_presence("1")
+var default_process_index := 0 # Index where it should never be cleared when refreshing process list.
 
 @onready var application_edit: LineEdit = %ApplicationEdit
 @onready var process_option: OptionButton = %ProcessOption
@@ -16,7 +17,14 @@ var presence_config := profile_config_resource.get_presence("1")
 
 func _ready() -> void:
 	application_edit.text = presence_config.app_id
-	#process_option # Later
+	
+	var process_path := presence_config.process_path
+	if process_path.is_empty() == false:
+		var index := _add_item(process_path)
+		process_option.select(index)
+		default_process_index += 1
+		prints("Set process option index to", index, process_path)
+	
 	details_edit.text = presence_config.details
 	state_edit.text = presence_config.details
 	large_image_edit.text = presence_config.assets_large_image
@@ -32,15 +40,20 @@ func _on_refresh_process_button_pressed() -> void:
 func refresh() -> void:
 	## This deletes the old process list.
 	## Do not delete the first item.
-	for i in range(process_option.item_count - 1, 0, -1):
+	for i in range(process_option.item_count - 1, default_process_index, -1):
 		process_option.remove_item(i)
 	
 	var path_list := RunningProcess.get_path_list()
 	
 	for path in path_list:
-		var index := process_option.item_count
-		process_option.add_item("Process: " + path)
-		process_option.set_item_metadata(index, path)
+		_add_item(path)
+
+
+func _add_item(process_path: String) -> int:
+	var index := process_option.item_count
+	process_option.add_item("Process: " + process_path)
+	process_option.set_item_metadata(index, process_path)
+	return index
 
 
 func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
@@ -49,6 +62,7 @@ func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
 
 
 func _on_process_option_item_selected(index: int) -> void:
+	prints("Index", index)
 	var path = process_option.get_item_metadata(index)
 	
 	if path is String:
