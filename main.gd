@@ -63,3 +63,18 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
 	if toggled_on == false:
 		presence_config.app_id = application_edit.text
+
+
+func _on_details_edit_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on == false:
+		presence_config.details = details_edit.text
+
+
+func _on_state_edit_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on == false:
+		presence_config.state = state_edit.text
+
+
+func _on_large_image_edit_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on == false:
+		presence_config.assets_large_image = large_image_edit.text
