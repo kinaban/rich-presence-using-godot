@@ -1,6 +1,6 @@
 extends PanelContainer
 
-var presence := DiscordRichPresence.new()
+var presence : DiscordRichPresence
 
 @onready var application_edit: LineEdit = %ApplicationEdit
 @onready var process_option: OptionButton = %ProcessOption
@@ -11,7 +11,6 @@ var presence := DiscordRichPresence.new()
 
 func _ready() -> void:
 	refresh()
-	add_child(presence)
 
 
 func _on_refresh_process_button_pressed() -> void:
@@ -34,7 +33,9 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 	prints("Enabled button", toggled_on)
 	
 	if toggled_on:
+		presence = DiscordRichPresence.new()
 		presence.app_id = application_edit.text
+		add_child(presence)
 		
 		presence.set_activity({
 			"details" : details_edit.text,
@@ -47,7 +48,9 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 			}
 		})
 	
-	else:
+	elif is_instance_valid(presence):
 		presence.clear_activity()
+		presence.queue_free()
 	
-	pass # Replace with function body.
+	else:
+		push_error("Presence not found when toggling off enable.")
