@@ -1,10 +1,17 @@
 extends PanelContainer
 
+var presence := DiscordRichPresence.new()
+
+@onready var application_edit: LineEdit = %ApplicationEdit
 @onready var process_option: OptionButton = %ProcessOption
+@onready var details_edit: LineEdit = %DetailsEdit
+@onready var state_edit: LineEdit = %StateEdit
+@onready var large_image_edit: LineEdit = %LargeImageEdit
 
 
 func _ready() -> void:
 	refresh()
+	add_child(presence)
 
 
 func _on_refresh_process_button_pressed() -> void:
@@ -21,3 +28,26 @@ func refresh() -> void:
 	
 	for path in path_list:
 		process_option.add_item("Process: " + path)
+
+
+func _on_enable_button_toggled(toggled_on: bool) -> void:
+	prints("Enabled button", toggled_on)
+	
+	if toggled_on:
+		presence.app_id = application_edit.text
+		
+		presence.set_activity({
+			"details" : details_edit.text,
+			"state" : state_edit.text,
+			"timestamps" : {
+				"start" : int(Time.get_unix_time_from_system())
+			},
+			"assets" : {
+				"large_image" : large_image_edit.text,
+			}
+		})
+	
+	else:
+		presence.clear_activity()
+	
+	pass # Replace with function body.
