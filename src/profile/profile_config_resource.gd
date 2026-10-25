@@ -9,7 +9,7 @@ const ENABLE_KEY := "is_enabled"
 
 
 func _on_presence_config_change(new_presence_config: PresenceConfig) -> void:
-	var section := new_presence_config.unique_id
+	var section := new_presence_config.section
 	
 	config_file.set_value(section, APP_ID_KEY, new_presence_config.app_id)
 	config_file.set_value(section, PROCESS_PATH_KEY, new_presence_config.process_path)
@@ -23,7 +23,7 @@ func _on_presence_config_change(new_presence_config: PresenceConfig) -> void:
 
 func get_presence(section: String) -> PresenceConfig:
 	var presence_config := PresenceConfig.new()
-	presence_config.unique_id = section
+	presence_config.section = section
 	
 	presence_config.app_id = str(config_file.get_value(section, APP_ID_KEY, ""))
 	presence_config.process_path = str(config_file.get_value(section, PROCESS_PATH_KEY, ""))
