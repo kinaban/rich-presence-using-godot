@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://dhg8yctepbdw1"]
+
+[ext_resource type="Script" uid="uid://bwjni7m6gnlf7" path="res://src/profile/profile_config_resource.gd" id="1_sq3c2"]
+
+[resource]
+script = ExtResource("1_sq3c2")
+path = "user://profile.ini"
