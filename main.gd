@@ -1,6 +1,10 @@
 extends PanelContainer
 
+## Don't make this a constant.
+var profile_config_resource := preload("uid://dhg8yctepbdw1")
+
 var discord_presence : DiscordRichPresence
+var presence_config := profile_config_resource.get_presence("1")
 
 @onready var application_edit: LineEdit = %ApplicationEdit
 @onready var process_option: OptionButton = %ProcessOption
@@ -54,3 +58,8 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 	
 	else:
 		push_error("Presence not found when toggling off enable.")
+
+
+func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on == false:
+		presence_config.app_id = application_edit.text
