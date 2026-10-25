@@ -26,3 +26,8 @@ var assets_large_image: String:
 	set(new_assets_large_image):
 		assets_large_image = new_assets_large_image
 		changed.emit()
+
+var is_enabled: bool:
+	set(new_enabled):
+		is_enabled = new_enabled
+		changed.emit()
