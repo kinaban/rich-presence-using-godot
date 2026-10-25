@@ -11,9 +11,17 @@ var presence_config := profile_config_resource.get_presence("1")
 @onready var details_edit: LineEdit = %DetailsEdit
 @onready var state_edit: LineEdit = %StateEdit
 @onready var large_image_edit: LineEdit = %LargeImageEdit
+@onready var enable_button: CheckButton = %EnableButton
 
 
 func _ready() -> void:
+	application_edit.text = presence_config.app_id
+	#process_option # Later
+	details_edit.text = presence_config.details
+	state_edit.text = presence_config.details
+	large_image_edit.text = presence_config.assets_large_image
+	enable_button.set_pressed_no_signal(presence_config.is_enabled)
+	
 	refresh()
 
 
