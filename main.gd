@@ -30,7 +30,9 @@ func refresh() -> void:
 	var path_list := RunningProcess.get_path_list()
 	
 	for path in path_list:
+		var index := process_option.item_count
 		process_option.add_item("Process: " + path)
+		process_option.set_item_metadata(index, path)
 
 
 func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
