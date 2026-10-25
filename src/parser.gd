@@ -1,3 +1,5 @@
+class_name Parser
+
 extends RefCounted
 
 const BOOL_TRUE_LIST := ["yes", "true", "1", "y", "enabled", "enable"]
