@@ -26,7 +26,7 @@ func _ready() -> void:
 		prints("Set process option index to", index, process_path)
 	
 	details_edit.text = presence_config.details
-	state_edit.text = presence_config.details
+	state_edit.text = presence_config.state
 	large_image_edit.text = presence_config.assets_large_image
 	
 	# This will only emit signal if true, because the default is already false
