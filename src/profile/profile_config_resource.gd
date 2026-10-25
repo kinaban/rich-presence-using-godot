@@ -4,6 +4,7 @@ const APP_ID_KEY := "app_id"
 const DETAILS_KEY := "details"
 const STATE_KEY := "state"
 const ASSETS_LARGE_IMAGE_KEY := "assets_large_image"
+const ENABLE_KEY := "is_enabled"
 
 
 func _on_presence_config_change(new_presence_config: PresenceConfig) -> void:
@@ -13,6 +14,7 @@ func _on_presence_config_change(new_presence_config: PresenceConfig) -> void:
 	config_file.set_value(section, DETAILS_KEY, new_presence_config.details)
 	config_file.set_value(section, STATE_KEY, new_presence_config.state)
 	config_file.set_value(section, ASSETS_LARGE_IMAGE_KEY, new_presence_config.assets_large_image)
+	config_file.set_value(section, ENABLE_KEY, int(new_presence_config.is_enabled))
 	
 	have_changes = true
 
