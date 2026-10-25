@@ -23,6 +23,6 @@ func get_presence(unique_id: String) -> PresenceConfig:
 	var presence_config := PresenceConfig.new()
 	presence_config.unique_id = unique_id
 	
-	presence_config.changed.connect(_on_presence_config_change)
+	presence_config.changed.connect(_on_presence_config_change.bind(presence_config))
 	
 	return presence_config
