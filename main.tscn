@@ -36,7 +36,7 @@ theme_override_constants/separation = 12
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-placeholder_text = "Application ID"
+placeholder_text = "App ID"
 
 [node name="AppNameEdit" type="LineEdit" parent="MarginContainer/content" unique_id=6039421]
 unique_name_in_owner = true
