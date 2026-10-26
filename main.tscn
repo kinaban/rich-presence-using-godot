@@ -85,7 +85,16 @@ popup/item_0/disabled = true
 popup/item_1/text = "Start time: Current time"
 popup/item_1/id = 1
 
-[node name="EnableButton" type="CheckButton" parent="MarginContainer/content" unique_id=34334525]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/content" unique_id=1834969722]
+layout_mode = 2
+
+[node name="UpdateButton" type="Button" parent="MarginContainer/content/HBoxContainer" unique_id=1883143830]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Update"
+
+[node name="EnableButton" type="CheckButton" parent="MarginContainer/content/HBoxContainer" unique_id=34334525]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -103,4 +112,4 @@ wait_time = 3.0
 [connection signal="editing_toggled" from="MarginContainer/content/DetailsEdit" to="." method="_on_details_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/StateEdit" to="." method="_on_state_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/LargeImageEdit" to="." method="_on_large_image_edit_editing_toggled"]
-[connection signal="toggled" from="MarginContainer/content/EnableButton" to="." method="_on_enable_button_toggled"]
+[connection signal="toggled" from="MarginContainer/content/HBoxContainer/EnableButton" to="." method="_on_enable_button_toggled"]
