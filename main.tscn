@@ -112,7 +112,7 @@ resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m
 script = ExtResource("3_h2yge")
 wait_time = 3.0
 
-[connection signal="editing_toggled" from="MarginContainer/content/AppIdEdit" to="." method="_on_application_edit_editing_toggled"]
+[connection signal="editing_toggled" from="MarginContainer/content/AppIdEdit" to="." method="_on_app_id_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
 [connection signal="item_selected" from="MarginContainer/content/ProcessOption" to="." method="_on_process_option_item_selected"]
 [connection signal="pressed" from="MarginContainer/content/RefreshProcessButton" to="." method="_on_refresh_process_button_pressed"]
