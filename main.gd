@@ -8,6 +8,7 @@ var presence_config := profile_config_resource.get_presence("1")
 var default_process_index := 0 # Index where it should never be cleared when refreshing process list.
 
 @onready var application_edit: LineEdit = %ApplicationEdit
+@onready var app_name_edit: LineEdit = %AppNameEdit
 @onready var process_option: OptionButton = %ProcessOption
 @onready var details_edit: LineEdit = %DetailsEdit
 @onready var state_edit: LineEdit = %StateEdit
@@ -17,6 +18,7 @@ var default_process_index := 0 # Index where it should never be cleared when ref
 
 func _ready() -> void:
 	application_edit.text = presence_config.app_id
+	app_name_edit.text = presence_config.app_name
 	
 	var process_path := presence_config.process_path
 	if process_path.is_empty() == false:
@@ -133,7 +135,9 @@ func update_activity() -> void:
 		discord_presence.app_id = app_id
 		add_child(discord_presence)
 	
-	discord_presence.set_activity({
+	var app_name := app_name_edit.text
+	var activity_table := {
+		"name" : app_name,
 		"details" : details_edit.text,
 		"state" : state_edit.text,
 		"timestamps" : {
@@ -142,4 +146,9 @@ func update_activity() -> void:
 		"assets" : {
 			"large_image" : large_image_edit.text,
 		}
-	})
+	}
+	
+	if app_name.is_empty():
+		activity_table.erase("name")
+	
+	discord_presence.set_activity(activity_table)
