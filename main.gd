@@ -110,11 +110,7 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 func _on_update_button_pressed() -> void:
 	if presence_config.is_enabled == false : return
 	
-	elif is_instance_valid(discord_presence) == false:
-		push_error("Invalid discord presence")
-	
-	else:
-		update_activity()
+	update_activity()
 
 
 func update_activity() -> void:
