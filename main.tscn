@@ -38,6 +38,12 @@ custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "Application ID"
 
+[node name="AppNameEdit" type="LineEdit" parent="MarginContainer/content" unique_id=6039421]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+placeholder_text = "App Name (Optional)"
+
 [node name="ProcessOption" type="OptionButton" parent="MarginContainer/content" unique_id=321175961]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
@@ -107,6 +113,7 @@ script = ExtResource("3_h2yge")
 wait_time = 3.0
 
 [connection signal="editing_toggled" from="MarginContainer/content/ApplicationEdit" to="." method="_on_application_edit_editing_toggled"]
+[connection signal="editing_toggled" from="MarginContainer/content/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
 [connection signal="item_selected" from="MarginContainer/content/ProcessOption" to="." method="_on_process_option_item_selected"]
 [connection signal="pressed" from="MarginContainer/content/RefreshProcessButton" to="." method="_on_refresh_process_button_pressed"]
 [connection signal="editing_toggled" from="MarginContainer/content/DetailsEdit" to="." method="_on_details_edit_editing_toggled"]
