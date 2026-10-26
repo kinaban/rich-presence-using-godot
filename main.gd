@@ -63,6 +63,11 @@ func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
 		presence_config.app_id = application_edit.text
 
 
+func _on_app_name_edit_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on == false:
+		presence_config.app_name = application_edit.text
+
+
 func _on_process_option_item_selected(index: int) -> void:
 	prints("Index", index)
 	var path = process_option.get_item_metadata(index)
