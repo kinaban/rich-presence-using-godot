@@ -93,10 +93,6 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 	prints("Enabled button", toggled_on)
 	
 	if toggled_on:
-		discord_presence = DiscordRichPresence.new()
-		discord_presence.app_id = application_edit.text
-		add_child(discord_presence)
-		
 		update_activity()
 
 	
@@ -122,6 +118,20 @@ func _on_update_button_pressed() -> void:
 
 
 func update_activity() -> void:
+	var app_id := application_edit.text
+	
+	if is_instance_valid(discord_presence):
+		if discord_presence.app_id != app_id:
+			discord_presence.queue_free()
+			discord_presence = null
+			prints("Cleared")
+	
+	# Check again incase it was deleted.
+	if is_instance_valid(discord_presence) == false:
+		discord_presence = DiscordRichPresence.new()
+		discord_presence.app_id = app_id
+		add_child(discord_presence)
+	
 	discord_presence.set_activity({
 		"details" : details_edit.text,
 		"state" : state_edit.text,
