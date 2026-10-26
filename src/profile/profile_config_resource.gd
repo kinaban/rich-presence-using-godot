@@ -1,6 +1,7 @@
 extends ConfigResource
 
 const APP_ID_KEY := "app_id"
+const APP_NAME_KEY := "app_name"
 const PROCESS_PATH_KEY := "process_path"
 const DETAILS_KEY := "details"
 const STATE_KEY := "state"
@@ -12,6 +13,7 @@ func _on_presence_config_change(new_presence_config: PresenceConfig) -> void:
 	var section := new_presence_config.section
 	
 	config_file.set_value(section, APP_ID_KEY, new_presence_config.app_id)
+	config_file.set_value(section, APP_NAME_KEY, new_presence_config.app_name)
 	config_file.set_value(section, PROCESS_PATH_KEY, new_presence_config.process_path)
 	config_file.set_value(section, DETAILS_KEY, new_presence_config.details)
 	config_file.set_value(section, STATE_KEY, new_presence_config.state)
@@ -26,6 +28,7 @@ func get_presence(section: String) -> PresenceConfig:
 	presence_config.section = section
 	
 	presence_config.app_id = str(config_file.get_value(section, APP_ID_KEY, ""))
+	presence_config.app_name = str(config_file.get_value(section, APP_NAME_KEY, ""))
 	presence_config.process_path = str(config_file.get_value(section, PROCESS_PATH_KEY, ""))
 	presence_config.details = str(config_file.get_value(section, DETAILS_KEY, ""))
 	presence_config.state = str(config_file.get_value(section, STATE_KEY, ""))

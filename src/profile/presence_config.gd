@@ -14,6 +14,13 @@ var app_id: String:
 		app_id = new_app_id
 		changed.emit()
 
+var app_name: String:
+	set(new_app_name):
+		if new_app_name == app_name : return
+		
+		app_name = new_app_name
+		changed.emit()
+
 var process_path: String:
 	set(new_process_path):
 		if new_process_path == process_path : return
