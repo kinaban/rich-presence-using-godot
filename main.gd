@@ -7,7 +7,7 @@ var discord_presence : DiscordRichPresence
 var presence_config := profile_config_resource.get_presence("1")
 var default_process_index := 0 # Index where it should never be cleared when refreshing process list.
 
-@onready var application_edit: LineEdit = %ApplicationEdit
+@onready var app_id_edit: LineEdit = %AppIdEdit
 @onready var app_name_edit: LineEdit = %AppNameEdit
 @onready var process_option: OptionButton = %ProcessOption
 @onready var details_edit: LineEdit = %DetailsEdit
@@ -17,7 +17,7 @@ var default_process_index := 0 # Index where it should never be cleared when ref
 
 
 func _ready() -> void:
-	application_edit.text = presence_config.app_id
+	app_id_edit.text = presence_config.app_id
 	app_name_edit.text = presence_config.app_name
 	
 	var process_path := presence_config.process_path
@@ -60,9 +60,10 @@ func _add_item(process_path: String) -> int:
 	return index
 
 
-func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
+# Refactor me
+func _on_app_id_edit_editing_toggled(toggled_on: bool) -> void:
 	if toggled_on == false:
-		presence_config.app_id = application_edit.text
+		presence_config.app_id = app_id_edit.text
 
 
 func _on_app_name_edit_editing_toggled(toggled_on: bool) -> void:
@@ -121,7 +122,7 @@ func _on_update_button_pressed() -> void:
 
 
 func update_activity() -> void:
-	var app_id := application_edit.text
+	var app_id := app_id_edit.text
 	
 	if is_instance_valid(discord_presence):
 		if discord_presence.app_id != app_id:

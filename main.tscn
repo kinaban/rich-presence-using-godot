@@ -32,11 +32,11 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="ApplicationEdit" type="LineEdit" parent="MarginContainer/content" unique_id=595419863]
+[node name="AppIdEdit" type="LineEdit" parent="MarginContainer/content" unique_id=595419863]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-placeholder_text = "Application ID"
+placeholder_text = "App ID"
 
 [node name="AppNameEdit" type="LineEdit" parent="MarginContainer/content" unique_id=6039421]
 unique_name_in_owner = true
@@ -112,7 +112,7 @@ resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m
 script = ExtResource("3_h2yge")
 wait_time = 3.0
 
-[connection signal="editing_toggled" from="MarginContainer/content/ApplicationEdit" to="." method="_on_application_edit_editing_toggled"]
+[connection signal="editing_toggled" from="MarginContainer/content/AppIdEdit" to="." method="_on_app_id_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
 [connection signal="item_selected" from="MarginContainer/content/ProcessOption" to="." method="_on_process_option_item_selected"]
 [connection signal="pressed" from="MarginContainer/content/RefreshProcessButton" to="." method="_on_refresh_process_button_pressed"]
