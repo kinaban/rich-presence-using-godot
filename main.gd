@@ -67,7 +67,7 @@ func _on_application_edit_editing_toggled(toggled_on: bool) -> void:
 
 func _on_app_name_edit_editing_toggled(toggled_on: bool) -> void:
 	if toggled_on == false:
-		presence_config.app_name = application_edit.text
+		presence_config.app_name = app_name_edit.text
 
 
 func _on_process_option_item_selected(index: int) -> void:
