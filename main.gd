@@ -97,16 +97,8 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 		discord_presence.app_id = application_edit.text
 		add_child(discord_presence)
 		
-		discord_presence.set_activity({
-			"details" : details_edit.text,
-			"state" : state_edit.text,
-			"timestamps" : {
-				"start" : int(Time.get_unix_time_from_system())
-			},
-			"assets" : {
-				"large_image" : large_image_edit.text,
-			}
-		})
+		update_activity()
+
 	
 	elif is_instance_valid(discord_presence):
 		discord_presence.clear_activity()
@@ -117,3 +109,26 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 		return
 	
 	presence_config.is_enabled = toggled_on
+
+
+func _on_update_button_pressed() -> void:
+	if presence_config.is_enabled == false : return
+	
+	elif is_instance_valid(discord_presence) == false:
+		push_error("Invalid discord presence")
+	
+	else:
+		update_activity()
+
+
+func update_activity() -> void:
+	discord_presence.set_activity({
+		"details" : details_edit.text,
+		"state" : state_edit.text,
+		"timestamps" : {
+			"start" : int(Time.get_unix_time_from_system())
+		},
+		"assets" : {
+			"large_image" : large_image_edit.text,
+		}
+	})

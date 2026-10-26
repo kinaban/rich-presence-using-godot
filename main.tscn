@@ -112,4 +112,5 @@ wait_time = 3.0
 [connection signal="editing_toggled" from="MarginContainer/content/DetailsEdit" to="." method="_on_details_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/StateEdit" to="." method="_on_state_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/LargeImageEdit" to="." method="_on_large_image_edit_editing_toggled"]
+[connection signal="pressed" from="MarginContainer/content/HBoxContainer/UpdateButton" to="." method="_on_update_button_pressed"]
 [connection signal="toggled" from="MarginContainer/content/HBoxContainer/EnableButton" to="." method="_on_enable_button_toggled"]
