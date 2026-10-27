@@ -3,7 +3,7 @@ class_name RunningProcess
 extends RefCounted
 
 
-static func _get_path_list_linuxbsd() -> PackedStringArray:
+static func _get_linux_path_list() -> PackedStringArray:
 	var path_list := PackedStringArray()
 	var proc_dir := DirAccess.open("/proc")
 	
@@ -59,8 +59,8 @@ static func get_pid_list() -> PackedStringArray:
 static func get_path_list() -> PackedStringArray:
 	var list := PackedStringArray()
 	
-	if OS.has_feature("linuxbsd"):
-		return _get_path_list_linuxbsd()
+	if OS.has_feature("linux"):
+		return _get_linux_path_list()
 	
 	push_error("Your OS '%s' is not supported." % OS.get_name())
 	return list
