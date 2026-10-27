@@ -140,8 +140,6 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_update_button_pressed() -> void:
-	if presence_config.is_enabled == false : return
-	
 	update_activity()
 
 
