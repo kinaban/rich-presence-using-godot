@@ -20,21 +20,24 @@ static func _get_linux_pid_list() -> PackedStringArray:
 	return pid_list
 
 
+## If a pid is invalid its index is filled with empty string,[br]
+## which is done in order to maintain the same indexing as the new_pid_list.
 static func _linux_pid_to_path_list(new_pid_list: PackedStringArray) -> PackedStringArray:
 	var path_list := PackedStringArray()
+	path_list.resize(new_pid_list.size())
 	
-	for pid in new_pid_list:
+	for i in range(new_pid_list.size()):
+		var pid := new_pid_list[i]
 		var pid_path := "/proc/%s/exe" % pid
 		var output := []
 		var exit_code := OS.execute("readlink", ["-f", pid_path], output)
 		
-		if exit_code != 0 or output.is_empty() : continue
+		if exit_code != 0 or output.is_empty():
+			path_list[i] = ""
+			continue
 		
 		var path := str(output[0]).strip_edges()
-		
-		if path.is_empty() : continue
-		
-		path_list.append(path)
+		path_list[i] = path
 	
 	return path_list
 
