@@ -80,9 +80,7 @@ func refresh() -> void:
 		pid_path_table[pid] = path
 		
 		if path.is_empty() == false:
-			# This prevents path duplication in the process_option.
-			if path_pid_list_table.has(path) == false:
-				_add_item(path)
+			_add_item(path, true)
 			
 			var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
 			path_pid_list.append(pid)
