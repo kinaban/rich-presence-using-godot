@@ -57,13 +57,14 @@ func refresh() -> void:
 	
 	for i in range(fresh_path_list.size()):
 		var path := fresh_path_list[i]
-		var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
 		var pid := fresh_pid_list[i]
 		
 		# We still add empty pid to the cache in order to not use expensive readlink on them again.
 		pid_path_table[pid] = path
 		
 		if path.is_empty() == false:
+			var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
+			path_pid_list.append(pid)
 			path_pid_list_table[path] = path_pid_list
 			_add_item(path)
 	
