@@ -98,15 +98,21 @@ func _is_path_running(path: String) -> bool:
 	return path_pid_list.is_empty() == false
 
 
-func _add_item(process_path: String) -> int:
-	var index := process_option.item_count
-	process_option.add_item("Process: " + process_path)
-	process_option.set_item_metadata(index, process_path)
+# This can be used to add new process item or update existing one.
+func _add_item(process_path: String, is_active: bool) -> int:
+	var prefix := "Active" if is_active else "Inactive"
+	var item_text := "%s: %s" % [prefix, process_path]
 	
 	if path_option_id_table.has(process_path):
-		push_error("Duplicate add item for process_path '%s'" % process_path)
+		var option_id = path_option_id_table.get(process_path)
+		process_option.set_item_text(option_id, item_text)
+		return option_id
 	
+	var index := process_option.item_count
+	process_option.add_item(item_text)
+	process_option.set_item_metadata(index, process_path)
 	path_option_id_table[process_path] = index
+	
 	return index
 
 
