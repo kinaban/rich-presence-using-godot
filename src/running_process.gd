@@ -31,6 +31,23 @@ static func _get_path_list_linuxbsd() -> PackedStringArray:
 	return path_list
 
 
+static func get_pid_list() -> PackedStringArray:
+	var pid_list := PackedStringArray()
+	var proc_dir := DirAccess.open("/proc")
+	
+	proc_dir.list_dir_begin()
+	
+	while true:
+		var pid := proc_dir.get_next()
+		
+		# End of directory has been reached.
+		if pid.is_empty() : break
+		
+		pid_list.append(pid)
+	
+	return pid_list
+
+
 static func get_path_list() -> PackedStringArray:
 	var list := PackedStringArray()
 	
