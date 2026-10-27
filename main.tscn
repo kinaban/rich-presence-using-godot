@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvria4v4ayew2" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Resource" uid="uid://dhg8yctepbdw1" path="res://src/profile/profile_config_resource.tres" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dswym7mpel1mx" path="res://src/control_plus/line_edit_plus.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://c540tykisoxl0" path="res://src/resource_plus/config_resource_preloader.gd" id="3_h2yge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sykd2"]
@@ -37,12 +38,14 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "App ID"
+script = ExtResource("2_1bvp3")
 
 [node name="AppNameEdit" type="LineEdit" parent="MarginContainer/content" unique_id=6039421]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "App Name (Optional)"
+script = ExtResource("2_1bvp3")
 
 [node name="ProcessOption" type="OptionButton" parent="MarginContainer/content" unique_id=321175961]
 unique_name_in_owner = true
@@ -67,17 +70,20 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "Details"
+script = ExtResource("2_1bvp3")
 
 [node name="StateEdit" type="LineEdit" parent="MarginContainer/content" unique_id=1324984199]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "State"
+script = ExtResource("2_1bvp3")
 
 [node name="LargeImageEdit" type="LineEdit" parent="MarginContainer/content" unique_id=1938082098]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "Large Image Key"
+script = ExtResource("2_1bvp3")
 
 [node name="TimestampOption" type="OptionButton" parent="MarginContainer/content" unique_id=1435060952]
 unique_name_in_owner = true
