@@ -48,6 +48,15 @@ func _on_refresh_process_button_pressed() -> void:
 func refresh() -> void:
 	var start := Time.get_ticks_msec()
 	var new_pid_list := RunningProcess.get_pid_list()
+	
+	for pid in pid_path_table:
+		if new_pid_list.has(pid) : continue
+		
+		var path := pid_path_table[pid]
+		var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
+		path_pid_list.erase(pid)
+	
+	# These are new pid's which don't exist yet in pid_path_table.
 	var fresh_pid_list := PackedStringArray()
 	
 	for pid in new_pid_list:
