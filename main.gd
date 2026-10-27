@@ -25,7 +25,8 @@ func _ready() -> void:
 	
 	var process_path := presence_config.process_path
 	if process_path.is_empty() == false:
-		var index := _add_item(process_path)
+		var is_running := _is_path_running(process_path)
+		var index := _add_item(process_path, is_running)
 		process_option.select(index)
 		
 		# This prevents duplication on process_option when saved path matches a running application.
