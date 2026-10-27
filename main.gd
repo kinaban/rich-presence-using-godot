@@ -132,19 +132,11 @@ func _on_large_image_edit_editing_toggled(toggled_on: bool) -> void:
 func _on_enable_button_toggled(toggled_on: bool) -> void:
 	prints("Enabled button", toggled_on)
 	
-	if toggled_on:
-		update_activity()
-
-	
-	elif is_instance_valid(discord_presence):
-		discord_presence.clear_activity()
-		discord_presence.queue_free()
-	
-	else:
+	if toggled_on == false and is_instance_valid(discord_presence) == false:
 		push_error("Presence not found when toggling off enable.")
-		return
 	
 	presence_config.is_enabled = toggled_on
+	update_activity()
 
 
 func _on_update_button_pressed() -> void:
@@ -154,6 +146,13 @@ func _on_update_button_pressed() -> void:
 
 
 func update_activity() -> void:
+	if presence_config.is_enabled == false:
+		if is_instance_valid(discord_presence):
+			discord_presence.clear_activity()
+			discord_presence.queue_free()
+		
+		return
+	
 	var app_id := app_id_edit.text
 	
 	if is_instance_valid(discord_presence):
