@@ -5,7 +5,6 @@ var profile_config_resource := preload("uid://dhg8yctepbdw1")
 
 var discord_presence : DiscordRichPresence
 var presence_config := profile_config_resource.get_presence("1")
-var default_process_index := 0 # Index where it should never be cleared when refreshing process list.
 
 var pid_path_table: Dictionary[String, String]
 var path_pid_list_table: Dictionary[String, PackedStringArray]
@@ -30,8 +29,6 @@ func _ready() -> void:
 		
 		# This prevents duplication on process_option when saved path matches a running application.
 		path_pid_list_table[process_path] = PackedStringArray()
-		
-		default_process_index += 1
 		prints("Set process option index to", index, process_path)
 	
 	details_edit.text = presence_config.details
