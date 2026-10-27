@@ -62,6 +62,9 @@ func refresh() -> void:
 		
 		path_pid_list.erase(pid)
 		pid_path_table.erase(pid)
+		
+		if path.is_empty() == false:
+			_add_item(path, false)
 	
 	# These are new pid's which don't exist yet in pid_path_table.
 	var fresh_pid_list := PackedStringArray()
