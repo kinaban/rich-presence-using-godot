@@ -91,6 +91,12 @@ func refresh() -> void:
 	prints("Refresh elapsed (msec):", elapsed)
 
 
+func _is_path_running(path: String) -> bool:
+	var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
+	
+	return path_pid_list.is_empty() == false
+
+
 func _add_item(process_path: String) -> int:
 	var index := process_option.item_count
 	process_option.add_item("Process: " + process_path)
