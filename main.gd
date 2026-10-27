@@ -8,6 +8,7 @@ var presence_config := profile_config_resource.get_presence("1")
 
 var pid_path_table: Dictionary[String, String]
 var path_pid_list_table: Dictionary[String, PackedStringArray]
+var path_option_id_table: Dictionary[String, int]
 
 @onready var app_id_edit: LineEdit = %AppIdEdit
 @onready var app_name_edit: LineEdit = %AppNameEdit
@@ -94,6 +95,11 @@ func _add_item(process_path: String) -> int:
 	var index := process_option.item_count
 	process_option.add_item("Process: " + process_path)
 	process_option.set_item_metadata(index, process_path)
+	
+	if path_option_id_table.has(process_path):
+		push_error("Duplicate add item for process_path '%s'" % process_path)
+	
+	path_option_id_table[process_path] = index
 	return index
 
 
