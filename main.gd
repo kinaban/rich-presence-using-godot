@@ -27,6 +27,10 @@ func _ready() -> void:
 	if process_path.is_empty() == false:
 		var index := _add_item(process_path)
 		process_option.select(index)
+		
+		# This prevents duplication on process_option when saved path matches a running application.
+		path_pid_list_table[process_path] = PackedStringArray()
+		
 		default_process_index += 1
 		prints("Set process option index to", index, process_path)
 	
@@ -63,10 +67,13 @@ func refresh() -> void:
 		pid_path_table[pid] = path
 		
 		if path.is_empty() == false:
+			# This prevents path duplication in the process_option.
+			if path_pid_list_table.has(path) == false:
+				_add_item(path)
+			
 			var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
 			path_pid_list.append(pid)
 			path_pid_list_table[path] = path_pid_list
-			_add_item(path)
 	
 	var elapsed := Time.get_ticks_msec() - start
 	prints("Refresh elapsed (msec):", elapsed)
