@@ -7,6 +7,9 @@ var discord_presence : DiscordRichPresence
 var presence_config := profile_config_resource.get_presence("1")
 var default_process_index := 0 # Index where it should never be cleared when refreshing process list.
 
+var pid_path_table: Dictionary[String, String]
+var path_pid_list_table: Dictionary[String, PackedStringArray]
+
 @onready var app_id_edit: LineEdit = %AppIdEdit
 @onready var app_name_edit: LineEdit = %AppNameEdit
 @onready var process_option: OptionButton = %ProcessOption
@@ -42,15 +45,30 @@ func _on_refresh_process_button_pressed() -> void:
 
 
 func refresh() -> void:
-	## This deletes the old process list.
-	## Do not delete the first item.
-	for i in range(process_option.item_count - 1, default_process_index, -1):
-		process_option.remove_item(i)
+	var start := Time.get_ticks_msec()
+	var new_pid_list := RunningProcess.get_pid_list()
+	var fresh_pid_list := PackedStringArray()
 	
-	var path_list := RunningProcess.get_path_list()
+	for pid in new_pid_list:
+		if pid_path_table.has(pid) : continue
+		fresh_pid_list.append(pid)
 	
-	for path in path_list:
-		_add_item(path)
+	var fresh_path_list := RunningProcess.pid_to_path_list(fresh_pid_list)
+	
+	for i in range(fresh_path_list.size()):
+		var path := fresh_path_list[i]
+		var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
+		var pid := fresh_pid_list[i]
+		
+		# We still add empty pid to the cache in order to not use expensive readlink on them again.
+		pid_path_table[pid] = path
+		
+		if path.is_empty() == false:
+			path_pid_list_table[path] = path_pid_list
+			_add_item(path)
+	
+	var elapsed := Time.get_ticks_msec() - start
+	prints("Refresh elapsed (msec):", elapsed)
 
 
 func _add_item(process_path: String) -> int:
