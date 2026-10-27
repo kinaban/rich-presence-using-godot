@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cg1ihvd20blxl"]
+
+[ext_resource type="Script" uid="uid://dng77dstasuul" path="res://test/test_pid_list.gd" id="1_gvyyp"]
+
+[node name="test_pid_list" type="Node" unique_id=2099054835]
+script = ExtResource("1_gvyyp")
