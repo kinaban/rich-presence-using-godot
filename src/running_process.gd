@@ -61,3 +61,11 @@ static func get_path_list() -> PackedStringArray:
 	
 	push_error("Your OS '%s' is not supported." % OS.get_name())
 	return list
+
+
+static func pid_to_path_list(new_pid_list: PackedStringArray) -> PackedStringArray:
+	if OS.has_feature("linux"):
+		return _linux_pid_to_path_list(new_pid_list)
+	
+	push_error("Your OS '%s' is not supported by 'pid_to_path_list()'." % OS.get_name())
+	return PackedStringArray()
