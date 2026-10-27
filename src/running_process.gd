@@ -20,18 +20,10 @@ static func _get_linux_pid_list() -> PackedStringArray:
 	return pid_list
 
 
-static func _get_linux_path_list() -> PackedStringArray:
+static func _linux_pid_to_path_list(new_pid_list: PackedStringArray) -> PackedStringArray:
 	var path_list := PackedStringArray()
-	var proc_dir := DirAccess.open("/proc")
 	
-	proc_dir.list_dir_begin()
-	
-	while true:
-		var pid := proc_dir.get_next()
-		
-		# End of directory has been reached.
-		if pid.is_empty() : break
-		
+	for pid in new_pid_list:
 		var pid_path := "/proc/%s/exe" % pid
 		var output := []
 		var exit_code := OS.execute("readlink", ["-f", pid_path], output)
@@ -44,8 +36,13 @@ static func _get_linux_path_list() -> PackedStringArray:
 		
 		path_list.append(path)
 	
-	proc_dir.list_dir_end()
 	return path_list
+
+
+static func _get_linux_path_list() -> PackedStringArray:
+	var pid_list := _get_linux_pid_list()
+	
+	return _linux_pid_to_path_list(pid_list)
 
 
 static func get_pid_list() -> PackedStringArray:
