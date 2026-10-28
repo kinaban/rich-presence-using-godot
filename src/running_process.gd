@@ -27,6 +27,7 @@ static func _get_linux_pid_list() -> PackedStringArray:
 static func _linux_pid_to_path_list(new_pid_list: PackedStringArray) -> PackedStringArray:
 	var path_list := PackedStringArray()
 	
+	# This is a micro optimizaation which prevents wasting system calls on empty requests.
 	if new_pid_list.is_empty() : return path_list
 	
 	path_list.resize(new_pid_list.size())
