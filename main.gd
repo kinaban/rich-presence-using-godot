@@ -10,6 +10,8 @@ var pid_path_table: Dictionary[String, String]
 var path_pid_list_table: Dictionary[String, PackedStringArray]
 var path_option_id_table: Dictionary[String, int]
 
+var _is_selected_running := false
+
 @onready var app_id_edit: LineEdit = %AppIdEdit
 @onready var app_name_edit: LineEdit = %AppNameEdit
 @onready var process_option: OptionButton = %ProcessOption
@@ -91,6 +93,12 @@ func refresh() -> void:
 	
 	var elapsed := Time.get_ticks_msec() - start
 	prints("Refresh elapsed (msec):", elapsed)
+	
+	var new_selected_running := _is_path_running(presence_config.process_path)
+	
+	if new_selected_running != _is_selected_running:
+		_is_selected_running = new_selected_running
+		update_activity()
 
 
 func _is_path_running(path: String) -> bool:
@@ -169,7 +177,7 @@ func _on_update_button_pressed() -> void:
 
 
 func update_activity() -> void:
-	if presence_config.is_enabled == false:
+	if presence_config.is_enabled == false or _is_selected_running == false:
 		if is_instance_valid(discord_presence):
 			discord_presence.clear_activity()
 			discord_presence.queue_free()
