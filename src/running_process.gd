@@ -48,14 +48,14 @@ static func _linux_pid_to_path_list(new_pid_list: PackedStringArray) -> PackedSt
 		return path_list
 	
 	var output_string := str(output[0]).strip_edges()
-	var output_list := output_string.split("\n")
+	var output_split := output_string.split("\n")
 	
-	if output_list.size() != new_pid_list.size():
-		push_error("Output list size '%d' doesn't match new_pid_size '%d'" % [output_list.size(), new_pid_list.size()])
+	if output_split.size() != new_pid_list.size():
+		push_error("output_split size '%d' doesn't match new_pid_size '%d'" % [output_split.size(), new_pid_list.size()])
 		return path_list
 	
-	for i in range(output_list.size()):
-		var path := str(output_list[i]).strip_edges()
+	for i in range(output_split.size()):
+		var path := str(output_split[i]).strip_edges()
 		
 		# This filters pid with invalid path, but also filters out some system processes, which is a nice side effect.
 		if path == argument_list[i + 1]:
