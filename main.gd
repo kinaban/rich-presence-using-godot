@@ -5,7 +5,12 @@ var profile_config_resource := preload("uid://dhg8yctepbdw1")
 
 var discord_presence : DiscordRichPresence
 var presence_config := profile_config_resource.get_presence("1")
-var default_process_index := 0 # Index where it should never be cleared when refreshing process list.
+
+var pid_path_table: Dictionary[String, String]
+var path_pid_list_table: Dictionary[String, PackedStringArray]
+var path_option_id_table: Dictionary[String, int]
+
+var _is_selected_running := false
 
 @onready var app_id_edit: LineEdit = %AppIdEdit
 @onready var app_name_edit: LineEdit = %AppNameEdit
@@ -22,9 +27,12 @@ func _ready() -> void:
 	
 	var process_path := presence_config.process_path
 	if process_path.is_empty() == false:
-		var index := _add_item(process_path)
+		var is_running := _is_path_running(process_path)
+		var index := _add_item(process_path, is_running)
 		process_option.select(index)
-		default_process_index += 1
+		
+		# This prevents duplication on process_option when saved path matches a running application.
+		path_pid_list_table[process_path] = PackedStringArray()
 		prints("Set process option index to", index, process_path)
 	
 	details_edit.text = presence_config.details
@@ -42,21 +50,78 @@ func _on_refresh_process_button_pressed() -> void:
 
 
 func refresh() -> void:
-	## This deletes the old process list.
-	## Do not delete the first item.
-	for i in range(process_option.item_count - 1, default_process_index, -1):
-		process_option.remove_item(i)
+	var start := Time.get_ticks_msec()
+	var new_pid_list := RunningProcess.get_pid_list()
+	var inactive_pid := PackedStringArray()
 	
-	var path_list := RunningProcess.get_path_list()
+	for pid in pid_path_table:
+		if new_pid_list.has(pid) : continue
+		inactive_pid.append(pid)
 	
-	for path in path_list:
-		_add_item(path)
+	for pid in inactive_pid:
+		var path := pid_path_table[pid]
+		var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
+		
+		path_pid_list.erase(pid)
+		pid_path_table.erase(pid)
+		
+		if path.is_empty() == false:
+			_add_item(path, false)
+	
+	# These are new pid's which don't exist yet in pid_path_table.
+	var fresh_pid_list := PackedStringArray()
+	
+	for pid in new_pid_list:
+		if pid_path_table.has(pid) : continue
+		fresh_pid_list.append(pid)
+	
+	var fresh_path_list := RunningProcess.pid_to_path_list(fresh_pid_list)
+	
+	for i in range(fresh_path_list.size()):
+		var path := fresh_path_list[i]
+		var pid := fresh_pid_list[i]
+		
+		# We still add empty pid to the cache in order to not use expensive readlink on them again.
+		pid_path_table[pid] = path
+		
+		if path.is_empty() == false:
+			_add_item(path, true)
+			
+			var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
+			path_pid_list.append(pid)
+			path_pid_list_table[path] = path_pid_list
+	
+	var elapsed := Time.get_ticks_msec() - start
+	prints("Refresh execution time (msec):", elapsed)
+	
+	var new_selected_running := _is_path_running(presence_config.process_path)
+	
+	if new_selected_running != _is_selected_running:
+		_is_selected_running = new_selected_running
+		update_activity()
 
 
-func _add_item(process_path: String) -> int:
+func _is_path_running(path: String) -> bool:
+	var path_pid_list: PackedStringArray = path_pid_list_table.get(path, PackedStringArray())
+	
+	return path_pid_list.is_empty() == false
+
+
+# This can be used to add new process item or update existing one.
+func _add_item(process_path: String, is_active: bool) -> int:
+	var prefix := "Active" if is_active else "Inactive"
+	var item_text := "%s: %s" % [prefix, process_path]
+	
+	if path_option_id_table.has(process_path):
+		var option_id = path_option_id_table.get(process_path)
+		process_option.set_item_text(option_id, item_text)
+		return option_id
+	
 	var index := process_option.item_count
-	process_option.add_item("Process: " + process_path)
+	process_option.add_item(item_text)
 	process_option.set_item_metadata(index, process_path)
+	path_option_id_table[process_path] = index
+	
 	return index
 
 
@@ -100,28 +165,25 @@ func _on_large_image_edit_editing_toggled(toggled_on: bool) -> void:
 func _on_enable_button_toggled(toggled_on: bool) -> void:
 	prints("Enabled button", toggled_on)
 	
-	if toggled_on:
-		update_activity()
-
-	
-	elif is_instance_valid(discord_presence):
-		discord_presence.clear_activity()
-		discord_presence.queue_free()
-	
-	else:
+	if toggled_on == false and is_instance_valid(discord_presence) == false:
 		push_error("Presence not found when toggling off enable.")
-		return
 	
 	presence_config.is_enabled = toggled_on
+	update_activity()
 
 
 func _on_update_button_pressed() -> void:
-	if presence_config.is_enabled == false : return
-	
 	update_activity()
 
 
 func update_activity() -> void:
+	if presence_config.is_enabled == false or _is_selected_running == false:
+		if is_instance_valid(discord_presence):
+			discord_presence.clear_activity()
+			discord_presence.queue_free()
+		
+		return
+	
 	var app_id := app_id_edit.text
 	
 	if is_instance_valid(discord_presence):
@@ -153,3 +215,7 @@ func update_activity() -> void:
 		activity_table.erase("name")
 	
 	discord_presence.set_activity(activity_table)
+
+
+func _on_refresh_timer_timeout() -> void:
+	refresh()
