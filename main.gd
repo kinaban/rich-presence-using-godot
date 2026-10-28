@@ -1,6 +1,6 @@
 extends PanelContainer
 
-## Don't make this a constant.
+## Don't make this a constant, godot seems to prevent touching resources marked as const.
 var profile_config_resource := preload("uid://dhg8yctepbdw1")
 
 var discord_presence : DiscordRichPresence
