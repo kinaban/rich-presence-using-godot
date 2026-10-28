@@ -113,6 +113,11 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "Enable"
 
+[node name="RefreshTimer" type="Timer" parent="." unique_id=600934904]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
 [node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=700522098]
 resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m")]]
 script = ExtResource("3_h2yge")
@@ -127,3 +132,4 @@ wait_time = 3.0
 [connection signal="editing_toggled" from="MarginContainer/content/LargeImageEdit" to="." method="_on_large_image_edit_editing_toggled"]
 [connection signal="pressed" from="MarginContainer/content/HBoxContainer/UpdateButton" to="." method="_on_update_button_pressed"]
 [connection signal="toggled" from="MarginContainer/content/HBoxContainer/EnableButton" to="." method="_on_enable_button_toggled"]
+[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]

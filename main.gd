@@ -215,3 +215,7 @@ func update_activity() -> void:
 		activity_table.erase("name")
 	
 	discord_presence.set_activity(activity_table)
+
+
+func _on_refresh_timer_timeout() -> void:
+	refresh()
