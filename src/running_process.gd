@@ -3,6 +3,7 @@ class_name RunningProcess
 extends RefCounted
 
 
+## Note that this may filter out some system process.
 static func _get_linux_pid_list() -> PackedStringArray:
 	var pid_list := PackedStringArray()
 	var proc_dir := DirAccess.open("/proc")
@@ -14,6 +15,7 @@ static func _get_linux_pid_list() -> PackedStringArray:
 		
 		# End of directory has been reached.
 		if pid.is_empty() : break
+		if pid.is_valid_int() == false : continue # This filters out more of the system process.
 		
 		pid_list.append(pid)
 	
