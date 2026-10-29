@@ -121,7 +121,6 @@ func _add_item(process_path: String, is_active: bool) -> int:
 	return index
 
 
-# Refactor me
 func _on_app_id_edit_editing_toggled(toggled_on: bool) -> void:
 	if toggled_on == false:
 		presence_config.app_id = app_id_edit.text
