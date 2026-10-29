@@ -45,10 +45,6 @@ func _ready() -> void:
 	refresh()
 
 
-func _on_refresh_process_button_pressed() -> void:
-	refresh()
-
-
 func refresh() -> void:
 	var start := Time.get_ticks_msec()
 	var new_pid_list := RunningProcess.get_pid_list()
@@ -125,7 +121,6 @@ func _add_item(process_path: String, is_active: bool) -> int:
 	return index
 
 
-# Refactor me
 func _on_app_id_edit_editing_toggled(toggled_on: bool) -> void:
 	if toggled_on == false:
 		presence_config.app_id = app_id_edit.text
