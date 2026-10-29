@@ -45,10 +45,6 @@ func _ready() -> void:
 	refresh()
 
 
-func _on_refresh_process_button_pressed() -> void:
-	refresh()
-
-
 func refresh() -> void:
 	var start := Time.get_ticks_msec()
 	var new_pid_list := RunningProcess.get_pid_list()
