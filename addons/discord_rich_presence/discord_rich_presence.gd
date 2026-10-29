@@ -176,12 +176,21 @@ func _unix_socket_paths() -> PackedStringArray:
 		dirs.append(runtime.path_join("app/com.discordapp.Discord"))
 		dirs.append(runtime.path_join("snap.discord"))
 	var paths: PackedStringArray = []
+	
 	for dir: String in dirs:
+		if DirAccess.dir_exists_absolute(dir) == false:
+			prints("[Plugin, Discord] Directory not found on '%s'" % dir)
+			continue
+		
 		# Sockets are not files for FileAccess.file_exists, but directory
 		# listing sees them.
 		for file: String in DirAccess.get_files_at(dir):
 			if file.begins_with("discord-ipc-"):
 				paths.append(dir.path_join(file))
+	
+	if paths.is_empty():
+		push_error("[Plugin, Discord] Empty paths for discord.")
+	
 	return paths
 
 
