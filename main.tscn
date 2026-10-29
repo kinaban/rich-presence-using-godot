@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://dhg8yctepbdw1" path="res://src/profile/profile_config_resource.tres" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://dswym7mpel1mx" path="res://src/control_plus/line_edit_plus.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://c540tykisoxl0" path="res://src/resource_plus/config_resource_preloader.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://bj2h5y6m4ft1k" path="res://src/control_plus/option_button_plus.gd" id="3_lquwl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sykd2"]
 bg_color = Color(0.21176471, 0.23921569, 0.2901961, 1)
@@ -52,12 +53,16 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ig7tw")
+text_overrun_behavior = 5
+clip_text = true
 selected = 0
 fit_to_longest_item = false
 search_bar_enabled = true
 item_count = 1
 popup/item_0/text = "Select a process"
 popup/item_0/id = 0
+script = ExtResource("3_lquwl")
+popup_maximum_height = 400
 
 [node name="DetailsEdit" type="LineEdit" parent="MarginContainer/content" unique_id=1699511620]
 unique_name_in_owner = true
@@ -116,6 +121,14 @@ autostart = true
 resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m")]]
 script = ExtResource("3_h2yge")
 wait_time = 3.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2089481789]
+visible = false
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer" unique_id=2071718963]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
 
 [connection signal="editing_toggled" from="MarginContainer/content/AppIdEdit" to="." method="_on_app_id_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
