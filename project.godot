@@ -29,6 +29,10 @@ WindowResizer="uid://duh4i01kgarpi"
 window/size/viewport_width=360
 window/size/viewport_height=640
 
+[gui]
+
+theme/custom="uid://c1irwosfmyokf"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
