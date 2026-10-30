@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://c1irwosfmyokf"]
+
+[resource]
+SmallLabel/base_type = &"Label"
+SmallLabel/font_sizes/font_size = 12
