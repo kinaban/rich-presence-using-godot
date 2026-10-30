@@ -50,7 +50,6 @@ text = "App ID:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-placeholder_text = "App ID"
 script = ExtResource("2_1bvp3")
 
 [node name="AppName" type="VBoxContainer" parent="MarginContainer/content" unique_id=830314189]
@@ -67,7 +66,7 @@ text = "App Name:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-placeholder_text = "App Name (Optional)"
+placeholder_text = "Half life 3"
 script = ExtResource("2_1bvp3")
 
 [node name="Process" type="VBoxContainer" parent="MarginContainer/content" unique_id=193172358]
@@ -91,7 +90,7 @@ selected = 0
 fit_to_longest_item = false
 search_bar_enabled = true
 item_count = 1
-popup/item_0/text = "Select a process"
+popup/item_0/text = "Select"
 popup/item_0/id = 0
 script = ExtResource("3_lquwl")
 popup_maximum_height = 400
@@ -110,7 +109,7 @@ text = "Details:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-placeholder_text = "Details"
+placeholder_text = "Game mode you're playing"
 script = ExtResource("2_1bvp3")
 
 [node name="State" type="VBoxContainer" parent="MarginContainer/content" unique_id=1063856438]
@@ -126,7 +125,7 @@ text = "State:"
 [node name="StateEdit" type="LineEdit" parent="MarginContainer/content/State" unique_id=1324984199]
 unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "State"
+placeholder_text = "Character level, Lobby size, and etc."
 script = ExtResource("2_1bvp3")
 
 [node name="LargeImage" type="VBoxContainer" parent="MarginContainer/content" unique_id=1298375967]
@@ -137,13 +136,13 @@ theme_type_variation = &"HeaderVBox"
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
-text = "Large Image Key:"
+text = "Large Image:"
 
 [node name="LargeImageEdit" type="LineEdit" parent="MarginContainer/content/LargeImage" unique_id=1938082098]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-placeholder_text = "Large Image Key"
+placeholder_text = "Icon key"
 script = ExtResource("2_1bvp3")
 
 [node name="Timestamp" type="VBoxContainer" parent="MarginContainer/content" unique_id=1651636688]
