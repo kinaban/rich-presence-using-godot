@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2ite2mjy3wrp"]
+
+[ext_resource type="Script" uid="uid://boh31bffg38bs" path="res://test/test_presence.gd" id="1_n6b38"]
+
+[node name="test_presence" type="Node" unique_id=613768577]
+script = ExtResource("1_n6b38")
