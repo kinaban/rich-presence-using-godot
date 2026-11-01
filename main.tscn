@@ -137,7 +137,7 @@ theme_type_variation = &"HeaderVBox"
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
-text = "Large Image:"
+text = "Large Image (Optional):"
 
 [node name="LargeImageEdit" type="LineEdit" parent="MarginContainer/content/LargeImage" unique_id=1938082098]
 unique_name_in_owner = true
