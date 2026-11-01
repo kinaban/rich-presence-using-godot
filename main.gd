@@ -194,8 +194,9 @@ func update_activity() -> void:
 		add_child(discord_presence)
 	
 	var app_name := app_name_edit.text
+	var details := details_edit.text
+	
 	var activity_table := {
-		"details" : details_edit.text,
 		"state" : state_edit.text,
 		"timestamps" : {
 			"start" : int(Time.get_unix_time_from_system())
@@ -205,6 +206,9 @@ func update_activity() -> void:
 	
 	if app_name.is_empty() == false:
 		activity_table["name"] = app_name
+	
+	if details.is_empty() == false:
+		activity_table["details"] = details
 	
 	if large_image_edit.text.is_empty() == false:
 		activity_table["assets"]["large_image"] = large_image_edit.text
