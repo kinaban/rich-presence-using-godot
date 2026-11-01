@@ -195,9 +195,9 @@ func update_activity() -> void:
 	
 	var app_name := app_name_edit.text
 	var details := details_edit.text
+	var state := state_edit.text
 	
 	var activity_table := {
-		"state" : state_edit.text,
 		"timestamps" : {
 			"start" : int(Time.get_unix_time_from_system())
 		},
@@ -209,6 +209,9 @@ func update_activity() -> void:
 	
 	if details.is_empty() == false:
 		activity_table["details"] = details
+	
+	if state.is_empty() == false:
+		activity_table["state"] = state
 	
 	if large_image_edit.text.is_empty() == false:
 		activity_table["assets"]["large_image"] = large_image_edit.text
