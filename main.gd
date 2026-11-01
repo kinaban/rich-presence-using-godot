@@ -195,7 +195,6 @@ func update_activity() -> void:
 	
 	var app_name := app_name_edit.text
 	var activity_table := {
-		"name" : app_name,
 		"details" : details_edit.text,
 		"state" : state_edit.text,
 		"timestamps" : {
@@ -204,8 +203,8 @@ func update_activity() -> void:
 		"assets" : {}
 	}
 	
-	if app_name.is_empty():
-		activity_table.erase("name")
+	if app_name.is_empty() == false:
+		activity_table["name"] = app_name
 	
 	if large_image_edit.text.is_empty() == false:
 		activity_table["assets"]["large_image"] = large_image_edit.text
