@@ -201,13 +201,14 @@ func update_activity() -> void:
 		"timestamps" : {
 			"start" : int(Time.get_unix_time_from_system())
 		},
-		"assets" : {
-			"large_image" : large_image_edit.text,
-		}
+		"assets" : {}
 	}
 	
 	if app_name.is_empty():
 		activity_table.erase("name")
+	
+	if large_image_edit.text.is_empty() == false:
+		activity_table["assets"]["large_image"] = large_image_edit.text
 	
 	discord_presence.set_activity(activity_table)
 
