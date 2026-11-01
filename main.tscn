@@ -78,7 +78,7 @@ theme_type_variation = &"HeaderVBox"
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
-text = "Process:"
+text = "Process (Optional):"
 
 [node name="ProcessOption" type="OptionButton" parent="MarginContainer/content/Process" unique_id=321175961]
 unique_name_in_owner = true
@@ -104,7 +104,7 @@ theme_type_variation = &"HeaderVBox"
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
-text = "Details:"
+text = "Details (Optiona):"
 
 [node name="DetailsEdit" type="LineEdit" parent="MarginContainer/content/Details" unique_id=1699511620]
 unique_name_in_owner = true
@@ -121,7 +121,7 @@ theme_type_variation = &"HeaderVBox"
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
-text = "State:"
+text = "State (Optional):"
 
 [node name="StateEdit" type="LineEdit" parent="MarginContainer/content/State" unique_id=1324984199]
 unique_name_in_owner = true
