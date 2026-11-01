@@ -61,7 +61,7 @@ theme_type_variation = &"HeaderVBox"
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
-text = "App Name:"
+text = "App Name (Optional):"
 
 [node name="AppNameEdit" type="LineEdit" parent="MarginContainer/content/AppName" unique_id=6039421]
 unique_name_in_owner = true
