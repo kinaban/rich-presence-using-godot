@@ -117,6 +117,7 @@ func _add_item(process_path: String, is_active: bool) -> int:
 	var index := process_option.item_count
 	process_option.add_item(item_text)
 	process_option.set_item_metadata(index, process_path)
+	process_option.set_item_tooltip(index, process_path)
 	path_option_id_table[process_path] = index
 	
 	return index
