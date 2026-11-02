@@ -106,7 +106,8 @@ func _is_path_running(path: String) -> bool:
 # This can be used to add new process item or update existing one.
 func _add_item(process_path: String, is_active: bool) -> int:
 	var prefix := "Active" if is_active else "Inactive"
-	var item_text := "%s: %s" % [prefix, process_path]
+	var filename := process_path.get_file()
+	var item_text := "%s: %s" % [prefix, filename]
 	
 	if path_option_id_table.has(process_path):
 		var option_id = path_option_id_table.get(process_path)
