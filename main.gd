@@ -178,7 +178,11 @@ func _on_update_button_pressed() -> void:
 
 
 func update_activity() -> void:
-	if presence_config.is_enabled == false or _is_selected_running == false:
+	# This allows empty paths to pass as allowed
+	var is_process_allowed := presence_config.process_path.is_empty() or _is_selected_running
+	prints("Update activity:", is_process_allowed)
+	
+	if presence_config.is_enabled == false or is_process_allowed == false:
 		if is_instance_valid(discord_presence):
 			discord_presence.clear_activity()
 			discord_presence.queue_free()
