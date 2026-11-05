@@ -142,6 +142,10 @@ func _on_process_option_item_selected(index: int) -> void:
 	
 	else:
 		presence_config.process_path = ""
+	
+	# Temporary workaround to make process option behavior consistent.
+	# However, this should not be considered as an intended feature.
+	update_activity() 
 
 
 func _on_details_edit_editing_toggled(toggled_on: bool) -> void:
