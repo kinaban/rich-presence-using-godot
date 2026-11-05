@@ -142,6 +142,10 @@ func _on_process_option_item_selected(index: int) -> void:
 	
 	else:
 		presence_config.process_path = ""
+	
+	# Temporary workaround to make process option behavior consistent.
+	# However, this should not be considered as an intended feature.
+	update_activity() 
 
 
 func _on_details_edit_editing_toggled(toggled_on: bool) -> void:
@@ -174,7 +178,11 @@ func _on_update_button_pressed() -> void:
 
 
 func update_activity() -> void:
-	if presence_config.is_enabled == false or _is_selected_running == false:
+	# This allows empty paths to pass as allowed
+	var is_process_allowed := presence_config.process_path.is_empty() or _is_selected_running
+	prints("Update activity:", is_process_allowed)
+	
+	if presence_config.is_enabled == false or is_process_allowed == false:
 		if is_instance_valid(discord_presence):
 			discord_presence.clear_activity()
 			discord_presence.queue_free()
