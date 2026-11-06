@@ -88,7 +88,7 @@ func refresh() -> void:
 			path_pid_list_table[path] = path_pid_list
 	
 	var elapsed := Time.get_ticks_msec() - start
-	prints("Refresh execution time (msec):", elapsed)
+	prints("Refresh execution time (msec): %d" % elapsed)
 	
 	var new_selected_running := _is_path_running(presence_config.process_path)
 	
