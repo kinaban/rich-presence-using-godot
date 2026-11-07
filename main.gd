@@ -11,6 +11,7 @@ var path_pid_list_table: Dictionary[String, PackedStringArray]
 var path_option_id_table: Dictionary[String, int]
 
 var _is_selected_running := false
+var _start_time: int
 
 @onready var app_id_edit: LineEdit = %AppIdEdit
 @onready var app_name_edit: LineEdit = %AppNameEdit
@@ -94,6 +95,7 @@ func refresh() -> void:
 	
 	if new_selected_running != _is_selected_running:
 		_is_selected_running = new_selected_running
+		_start_time = 0
 		update_activity()
 
 
@@ -170,6 +172,7 @@ func _on_enable_button_toggled(toggled_on: bool) -> void:
 		push_error("Presence not found when toggling off enable.")
 	
 	presence_config.is_enabled = toggled_on
+	_start_time = 0
 	update_activity()
 
 
@@ -207,9 +210,14 @@ func update_activity() -> void:
 	var details := details_edit.text
 	var state := state_edit.text
 	
+	# This is the only place where the start time should be assigned a non zero value.
+	# Other locations should only reset it to 0.
+	if _start_time == 0:
+		_start_time = int(Time.get_unix_time_from_system())
+	
 	var activity_table := {
 		"timestamps" : {
-			"start" : int(Time.get_unix_time_from_system())
+			"start" : _start_time
 		},
 		"assets" : {}
 	}
