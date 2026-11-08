@@ -42,8 +42,13 @@ func _ready() -> void:
 	
 	# This will only emit signal if true, because the default is already false
 	enable_button.set_pressed(presence_config.is_enabled)
+	presence_config.changed.connect(_on_presence_config_changed)
 	
 	refresh()
+
+
+func _on_presence_config_changed() -> void:
+	update_activity()
 
 
 func refresh() -> void:
