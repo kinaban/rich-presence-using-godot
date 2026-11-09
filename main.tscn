@@ -166,7 +166,7 @@ text = "Small Image (Optional):"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-placeholder_text = "Icon key"
+placeholder_text = "Small icon url"
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
