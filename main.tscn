@@ -160,7 +160,7 @@ theme_type_variation = &"HeaderVBox"
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
-text = "Large Image (Optional):"
+text = "Small Image (Optional):"
 
 [node name="SmallImageEdit" type="LineEdit" parent="MarginContainer/content/SmallImage" unique_id=1693107716]
 unique_name_in_owner = true
