@@ -6,6 +6,7 @@ const PROCESS_PATH_KEY := "process_path"
 const DETAILS_KEY := "details"
 const STATE_KEY := "state"
 const ASSETS_LARGE_IMAGE_KEY := "assets_large_image"
+const ASSETS_SMALL_IMAGE_KEY := "assets_small_image"
 const ENABLE_KEY := "is_enabled"
 
 
@@ -18,6 +19,7 @@ func _on_presence_config_change(new_presence_config: PresenceConfig) -> void:
 	config_file.set_value(section, DETAILS_KEY, new_presence_config.details)
 	config_file.set_value(section, STATE_KEY, new_presence_config.state)
 	config_file.set_value(section, ASSETS_LARGE_IMAGE_KEY, new_presence_config.assets_large_image)
+	config_file.set_value(section, ASSETS_SMALL_IMAGE_KEY, new_presence_config.assets_small_image)
 	config_file.set_value(section, ENABLE_KEY, int(new_presence_config.is_enabled))
 	
 	have_changes = true
@@ -33,6 +35,7 @@ func get_presence(section: String) -> PresenceConfig:
 	presence_config.details = str(config_file.get_value(section, DETAILS_KEY, ""))
 	presence_config.state = str(config_file.get_value(section, STATE_KEY, ""))
 	presence_config.assets_large_image = str(config_file.get_value(section, ASSETS_LARGE_IMAGE_KEY, ""))
+	presence_config.assets_small_image = str(config_file.get_value(section, ASSETS_SMALL_IMAGE_KEY, ""))
 	presence_config.is_enabled = Parser.get_bool(config_file.get_value(section, ENABLE_KEY, 0))
 	
 	presence_config.changed.connect(_on_presence_config_change.bind(presence_config))
