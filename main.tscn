@@ -239,6 +239,7 @@ layout_mode = 2
 [connection signal="editing_toggled" from="MarginContainer/content/Details/DetailsEdit" to="." method="_on_details_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/State/StateEdit" to="." method="_on_state_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/LargeImage/LargeImageEdit" to="." method="_on_large_image_edit_editing_toggled"]
+[connection signal="editing_toggled" from="MarginContainer/content/SmallImage/SmallImageEdit" to="." method="_on_small_image_edit_editing_toggled"]
 [connection signal="pressed" from="MarginContainer/content/HBoxContainer/UpdateButton" to="." method="_on_update_button_pressed"]
 [connection signal="toggled" from="MarginContainer/content/HBoxContainer/EnableButton" to="." method="_on_enable_button_toggled"]
 [connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
