@@ -49,6 +49,13 @@ var assets_large_image: String:
 		assets_large_image = new_assets_large_image
 		changed.emit()
 
+var assets_small_image: String:
+	set(new_assets_small_image):
+		if new_assets_small_image == assets_small_image : return
+		
+		assets_small_image = new_assets_small_image
+		changed.emit()
+
 var is_enabled: bool:
 	set(new_enabled):
 		if new_enabled == is_enabled : return

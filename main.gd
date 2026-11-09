@@ -19,6 +19,7 @@ var _start_time: int
 @onready var details_edit: LineEdit = %DetailsEdit
 @onready var state_edit: LineEdit = %StateEdit
 @onready var large_image_edit: LineEdit = %LargeImageEdit
+@onready var small_image_edit: LineEdit = %SmallImageEdit
 @onready var enable_button: CheckButton = %EnableButton
 
 
@@ -39,6 +40,7 @@ func _ready() -> void:
 	details_edit.text = presence_config.details
 	state_edit.text = presence_config.state
 	large_image_edit.text = presence_config.assets_large_image
+	small_image_edit.text = presence_config.assets_small_image
 	
 	# This will only emit signal if true, because the default is already false
 	enable_button.set_pressed(presence_config.is_enabled)
@@ -170,6 +172,11 @@ func _on_large_image_edit_editing_toggled(toggled_on: bool) -> void:
 		presence_config.assets_large_image = large_image_edit.text
 
 
+func _on_small_image_edit_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on == false:
+		presence_config.assets_small_image = small_image_edit.text
+
+
 func _on_enable_button_toggled(toggled_on: bool) -> void:
 	prints("Enabled button", toggled_on)
 	
@@ -237,6 +244,9 @@ func update_activity() -> void:
 	
 	if large_image_edit.text.is_empty() == false:
 		activity_table["assets"]["large_image"] = large_image_edit.text
+	
+	if small_image_edit.text.is_empty() == false:
+		activity_table["assets"]["small_image"] = small_image_edit.text
 	
 	discord_presence.set_activity(activity_table)
 

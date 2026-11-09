@@ -152,6 +152,24 @@ placeholder_text = "Icon key"
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
+[node name="SmallImage" type="VBoxContainer" parent="MarginContainer/content" unique_id=1611423413]
+layout_mode = 2
+theme_type_variation = &"HeaderVBox"
+
+[node name="Header" type="Label" parent="MarginContainer/content/SmallImage" unique_id=2066267398]
+layout_mode = 2
+theme_type_variation = &"SmallLabel"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
+text = "Small Image (Optional):"
+
+[node name="SmallImageEdit" type="LineEdit" parent="MarginContainer/content/SmallImage" unique_id=1693107716]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+placeholder_text = "Small icon url"
+caret_blink = true
+script = ExtResource("2_1bvp3")
+
 [node name="Timestamp" type="VBoxContainer" parent="MarginContainer/content" unique_id=1651636688]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
@@ -221,6 +239,7 @@ layout_mode = 2
 [connection signal="editing_toggled" from="MarginContainer/content/Details/DetailsEdit" to="." method="_on_details_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/State/StateEdit" to="." method="_on_state_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/LargeImage/LargeImageEdit" to="." method="_on_large_image_edit_editing_toggled"]
+[connection signal="editing_toggled" from="MarginContainer/content/SmallImage/SmallImageEdit" to="." method="_on_small_image_edit_editing_toggled"]
 [connection signal="pressed" from="MarginContainer/content/HBoxContainer/UpdateButton" to="." method="_on_update_button_pressed"]
 [connection signal="toggled" from="MarginContainer/content/HBoxContainer/EnableButton" to="." method="_on_enable_button_toggled"]
 [connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
