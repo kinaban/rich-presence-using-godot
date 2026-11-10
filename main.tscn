@@ -52,6 +52,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "This can be generated on Discord"
+clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
@@ -70,6 +71,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "This overwrites the name from App ID"
+clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
@@ -114,6 +116,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "Game mode you're playing"
+clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
@@ -131,6 +134,7 @@ text = "State (Optional):"
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Character level, or some other status"
+clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
@@ -149,6 +153,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "Icon key"
+clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
@@ -167,6 +172,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 placeholder_text = "Small icon url"
+clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
