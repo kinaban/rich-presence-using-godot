@@ -12,6 +12,8 @@ To implement a new configuration support the following steps can be followed:<br
 	2. Add save support by going to `_on_presence_config_change()` and insert `config_file.set_value(section, CONFIG_KEY, CONFIG_VARIABLE)`.<br>
 	3. Add load support by going to `get_presence()` and insert `presence_config.CONFIG_VARIABLE = config.get_value(section, CONFIG_KEY, "")`. You may enclose it in str, int or any other types to enforce a data type.<br>
 
+3. Go inside `main.tscn` to edit the GUI.<br>
+
 ## Pull Request
 All contributions must use pull requests and follow the requirements below.<br>
 
