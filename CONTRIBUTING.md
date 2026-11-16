@@ -2,7 +2,7 @@
 This document establishes the standard practices to be followed when contributing to "Rich Presence Using Godot".
 
 ## Adding Presence Configuration
-To implement a new presence configuration support the following steps can be followed:<br>
+To implement a new presence configuration support, follow the steps below:<br>
 
 1. Create a new setget variable inside `presence_config.gd` to store the new data. This variable shall be represented as `CONFIG_VARIABLE` within the examples in this section.<br>
 
