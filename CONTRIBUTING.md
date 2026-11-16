@@ -3,10 +3,14 @@ This document establishes the standard practices to be followed when contributin
 
 ## Add New Configuration
 To implement a new configuration support the following steps can be followed:<br>
-1. Create a new setget variable in `presence.config` to store the new data.
-2. Create a unique constant key in `profile_config_resource.config`
-3. Add save support by adding a `config.set_value()` for it inside `profile_config_resource.gd: _on_presence_config_change()`
-4. Add load support by setting the variable you've created in step 1 to `config.get_value()` using the key you've created in step 2 inside `profile_config_resource.gd: get_presence()`
+
+
+1. Create a new setget variable inside `presence.config` to store the new data.<br>
+
+2. Edit the following inside `profile_config_resource.gd`:<br>
+	1. Create a unique constant key in `profile_config_resource.config`<br>
+	2. Add save support by adding a `config.set_value()` for it inside `profile_config_resource.gd: _on_presence_config_change()`<br>
+	3. Add load support by setting the variable you've created in step 1 to `config.get_value()` using the key you've created in step 2 inside `profile_config_resource.gd: get_presence()`<br>
 
 ## Pull Request
 All contributions must use pull requests and follow the requirements below.<br>
