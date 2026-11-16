@@ -14,6 +14,13 @@ To implement a new configuration support the following steps can be followed:<br
 
 3. Go inside `main.tscn` to edit the GUI.<br>
 
+4. Guidelines for one liner configurations, skip this step if not applicable:
+	1. Use or inherit `line_edit_plus.gd`.
+	2. Set `placeholder_text` to a short description of its purpose.<br>
+	3. Set `clear_button_enabled` to true.<b>
+	4. Set `caret_blink` to true.<br>
+	5. Set `custom_minimum_size` to Vector2(0, 35).<br>
+
 ## Pull Request
 All contributions must use pull requests and follow the requirements below.<br>
 
