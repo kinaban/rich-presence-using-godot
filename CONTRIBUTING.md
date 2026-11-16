@@ -19,6 +19,14 @@ To implement a new presence configuration support, follow the steps below:<br>
 	3. Set `clear_button_enabled` to true.<b>
 	4. Set `caret_blink` to true.<br>
 	5. Set `custom_minimum_size` to Vector2(0, 35).<br>
+	6. Give the node a unique name, and include `Edit` as a suffix.
+	7. Enable `Access as Unique Name`.
+	8. Connect `editing_toggled` signal to the root node of the scene. The new function created by this shall be represented as `CONNECT_FUNCTION` within the examples in this sublist.
+	9. Open `main.gd` for next steps below.
+	10. Store a typed reference of the node by using `@onready`. This onready variable shall be represented as `CONFIG_NODE` within the examples in this sublist.
+	11. Load saved data going to `_ready()` and adding `CONFIG_NODE.text = presence_config.CONFIG_VARIABLE`.
+	12. Save new changes by going inside the `CONNECT_FUNCTION` and check if the `toggled_on` is false then `presence_config.CONFIG_VARIABLE = CONFIG_NODE.text`.
+	13. Make this show up in the presence by first going to `updated_activity()`, second check if `CONFIG_NODE.text.is_empty() == false`, third include it in the `activity_table`.
 
 ## Pull Request
 All contributions must use pull requests and follow the requirements below.<br>
