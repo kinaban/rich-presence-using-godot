@@ -5,7 +5,7 @@ This document establishes the standard practices to be followed when contributin
 To implement a new configuration support the following steps can be followed:<br>
 
 
-1. Create a new setget variable inside `presence.config` to store the new data.<br>
+1. Create a new setget variable inside `presence_config.gd` to store the new data.<br>
 
 2. Edit the following inside `profile_config_resource.gd`:<br>
 	1. Create a unique constant key in `profile_config_resource.config`<br>
