@@ -16,7 +16,7 @@ To implement a new presence configuration support, follow the steps below:<br>
 4. Guidelines for one liner configurations, skip this step if not applicable:
 	1. Use or inherit `line_edit_plus.gd`.
 	2. Set `placeholder_text` to a short description of its purpose.<br>
-	3. Set `clear_button_enabled` to true.<b>
+	3. Set `clear_button_enabled` to true.<br>
 	4. Set `caret_blink` to true.<br>
 	5. Set `custom_minimum_size` to Vector2(0, 35).<br>
 	6. Give the node a unique name, and include `Edit` as a suffix.
