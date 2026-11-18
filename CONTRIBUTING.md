@@ -1,6 +1,15 @@
 # Contributing Guidelines
 This document establishes the standard practices to be followed when contributing to "Rich Presence Using Godot".
 
+## GDScript Style
+This guideline follows and builds upon [GDScript style guide - v4.7](https://docs.godotengine.org/en/4.7/tutorials/scripting/gdscript/gdscript_styleguide.html) unless otherwise specified below.
+
+Additional guidelines are included below:<br>
+1. Use static typing wherever possible.<br>
+2. Access nodes using unique names where possible.<br>
+3. Use Guard Clause where it makes sense to minimize nesting.<br>
+4. Signals must always connect to their own dedicated function using the default format of `_on_{NODE_NAME}_{SIGNAL_NAME}`.<br>
+
 ## Adding Presence Configuration
 To implement a new presence configuration support, follow the steps below:<br>
 
