@@ -8,7 +8,13 @@ Additional guidelines are included below:<br>
 1. Use static typing wherever possible.<br>
 2. Access nodes using unique names where possible.<br>
 3. Use Guard Clause where it makes sense to minimize nesting.<br>
-4. Signals must always connect to their own dedicated function using the default format of `_on_{NODE_NAME}_{SIGNAL_NAME}`.<br>
+4. Signals must always connect on their own dedicated function using the Godot's default format of `_on_{NODE_NAME}_{SIGNAL_NAME}`.<br>
+5. Avoid excessive abstraction, only separate code into its own function and script when needed.<br>
+6. Minimize the usage of `class_name` when dealing with node types to avoid polluting add node popup.<br>
+7. Prefer simpler design, and only optimize when needed.<br>
+8. Follow single source of truth where possible.<br>
+9. Only the owner node should have direct access to the nodes it own.<br>
+10. Strictly follow `Call down, signal up` as explained in [Node communication (the right way)](https://kidscancode.org/godot_recipes/4.x/basics/node_communication/index.html) by `KidsCanCode`.
 
 ## Adding Presence Configuration
 To implement a new presence configuration support, follow the steps below:<br>
