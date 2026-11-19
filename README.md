@@ -7,3 +7,6 @@ Version Development Started: 2026-10-20<br>
 Prepared by: [Robert Sardilla]<br>
 <br>
 This project was inspired by CustomRP by maximmax42.<br>
+
+## Contributing and Technical Documentation
+To help with the development of the project, or if you're just interested with the implementation details, see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
