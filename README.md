@@ -9,4 +9,4 @@ Prepared by: [Robert Sardilla]<br>
 This project was inspired by CustomRP by maximmax42.<br>
 
 ## Contributing and Technical Documentation
-To help with the development of the project, or if you're just interested with the implementation details, see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+To help with the development of the project, or if you're just interested with the implementation details, check out [CONTRIBUTING.md](CONTRIBUTING.md) to learn more.
