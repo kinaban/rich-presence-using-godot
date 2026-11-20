@@ -10,3 +10,6 @@ This project was inspired by CustomRP by maximmax42.<br>
 
 ## Contributing and Technical Documentation
 To help with the development of the project, or if you're just interested with the implementation details, check out [CONTRIBUTING.md](CONTRIBUTING.md) to learn more.
+
+## Attribution
+This project uses third party dependencies which are under permissive license but may require their license text to be in the final product documentation. See [docs/attribution.md](docs/attribution.md) for more details.
