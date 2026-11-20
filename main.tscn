@@ -231,14 +231,6 @@ resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m
 script = ExtResource("3_h2yge")
 wait_time = 3.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2089481789]
-visible = false
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer" unique_id=2071718963]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-
 [connection signal="editing_toggled" from="MarginContainer/content/AppId/AppIdEdit" to="." method="_on_app_id_edit_editing_toggled"]
 [connection signal="editing_toggled" from="MarginContainer/content/AppName/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
 [connection signal="item_selected" from="MarginContainer/content/Process/ProcessOption" to="." method="_on_process_option_item_selected"]
