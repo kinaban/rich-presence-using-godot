@@ -5,7 +5,7 @@ This document establishes the purpose of this folder, standards and how to organ
 This folder is responsible for holding all media assets used in the project and their corresponding licenses.
 
 ## Organization
-The assets must be grouped together based on their original asset pack.<br>
+The assets must be grouped together based on their original asset pack. In addition to this, only include media files that are actually used in the project to minimize bloat.<br>
 
 Where assets are distributed on an individual basis they may be grouped with other assets from the same source which shares the same type of license.<br>
 
