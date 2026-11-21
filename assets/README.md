@@ -18,3 +18,5 @@ Where a license file is not provided, a screenshot showing the license declared 
 The assets, licenses and their folder/s must maintain their original filename in order to make each file traceable and comparable from their original source.<br>
 
 Where assets are distributed on an individual basis, their folder maybe named using the format `{CREATOR_NAME}_{LICENSE}` in snake_case form.
+
+Where screenshot is provided as proof of license in place of a text file, it may named `LICENSE.{EXT}` where `{EXT}` may come in form of png, jpg or any other standard media.
