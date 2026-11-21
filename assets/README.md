@@ -5,7 +5,7 @@ This document establishes the purpose of this folder, standards and how to organ
 This folder is responsible for holding all media assets used in the project and their corresponding licenses.
 
 ## Organization
-The assets must be grouped together based on their original asset pack. In addition to this, only include media files that are actually used in the project to minimize bloat.<br>
+The assets must be grouped together based on their original asset pack. <br>
 
 Where assets are distributed on an individual basis they may be grouped with other assets from the same source which shares the same type of license.<br>
 
@@ -14,10 +14,12 @@ Each folder must contain a license file regardless of their license type.<br>
 
 Where a license file is not provided, a screenshot showing the license declared by the creator through their distribution channels or through direct messaging with the explicit permission to share their message may suffice.
 
-Where multiple versions of an image asset is available, pick the following by default where applicable:<br>
+Finally, only include media files that are actually used in the project to minimize bloat. Where multiple versions of an image asset is available, pick the following by default where applicable:<br>
 1. Spritesheet over individual assets.
 2. SVG over other types.
 3. White icons over colored icons, this is so the color can be adjusted from within the project as needed.
+
+
 
 ## Naming Convention
 The assets, licenses and their folder/s must maintain their original filename in order to make each file traceable and comparable from their original source.<br>
