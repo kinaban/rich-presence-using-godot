@@ -9,6 +9,11 @@ The assets must be grouped together based on their original asset pack. In addit
 
 Where assets are distributed on an individual basis they may be grouped with other assets from the same source which shares the same type of license.<br>
 
+Where multiple versions of an image asset is available, pick the following by default where applicable:<br>
+1. Spritesheet over individual assets.
+2. SVG over other types.
+3. White icons over colored icons, this is so the color can be adjusted from within the project as needed.
+
 ## Files Included
 Each folder must contain a license file regardless of their license type.<br>
 
