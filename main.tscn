@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvria4v4ayew2" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Resource" uid="uid://dhg8yctepbdw1" path="res://src/profile/profile_config_resource.tres" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://dswym7mpel1mx" path="res://src/control_plus/line_edit_plus.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cvxna600l8t2w" path="res://src/about/about_icon.tres" id="2_272bh"]
 [ext_resource type="Script" uid="uid://c540tykisoxl0" path="res://src/resource_plus/config_resource_preloader.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bj2h5y6m4ft1k" path="res://src/control_plus/option_button_plus.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://cxg54ms3xbe8w" path="res://src/version_label.gd" id="4_7mycd"]
@@ -37,6 +38,17 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lux1s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header" unique_id=2058182113]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Header/HBoxContainer" unique_id=1521905930]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+icon = ExtResource("2_272bh")
+icon_alignment = 1
+expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=992425452]
 layout_mode = 2
