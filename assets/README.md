@@ -19,4 +19,4 @@ The assets, licenses and their folder/s must maintain their original filename in
 
 Where assets are distributed on an individual basis, their folder maybe named using the format `{CREATOR_NAME}_{LICENSE}` in snake_case form.
 
-Where screenshot is provided as proof of license in place of a text file, it may named `LICENSE.{EXT}` where `{EXT}` may come in form of png, jpg or any other standard media.
+Where screenshot is provided as proof of license in place of a text file as discussed in `Files Included` section, it may named `LICENSE.{EXT}` where `{EXT}` may come in form of png, jpg or any other standard media.
