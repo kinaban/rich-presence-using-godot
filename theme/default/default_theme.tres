@@ -1,11 +1,11 @@
 [gd_resource type="Theme" format=3 uid="uid://c1irwosfmyokf"]
 
-[ext_resource type="StyleBox" uid="uid://ctkh8vgybsdwx" path="res://theme/default/icon_button/icon_button_normal.tres" id="1_e7t0p"]
+[ext_resource type="StyleBox" uid="uid://ctkh8vgybsdwx" path="res://theme/default/icon_button/normal_icon_button.tres" id="2_3k2um"]
 
 [resource]
 HeaderVBox/base_type = &"VBoxContainer"
 HeaderVBox/constants/separation = 2
 IconButton/base_type = &"Button"
-IconButton/styles/normal = ExtResource("1_e7t0p")
+IconButton/styles/normal = ExtResource("2_3k2um")
 SmallLabel/base_type = &"Label"
 SmallLabel/font_sizes/font_size = 12
