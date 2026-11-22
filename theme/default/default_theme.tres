@@ -3,11 +3,14 @@
 [ext_resource type="StyleBox" uid="uid://cw2u6vo0eos35" path="res://theme/default/panel/background_panel.tres" id="1_4b18h"]
 [ext_resource type="StyleBox" uid="uid://mmjtfqvc045i" path="res://theme/default/icon_button/hover_icon_button.tres" id="1_86ycc"]
 [ext_resource type="StyleBox" uid="uid://ctkh8vgybsdwx" path="res://theme/default/icon_button/normal_icon_button.tres" id="2_3k2um"]
+[ext_resource type="StyleBox" uid="uid://dmr1pty7q1oo6" path="res://theme/default/panel/header_panel.tres" id="2_fk0dw"]
 [ext_resource type="StyleBox" uid="uid://bts1n22jm36un" path="res://theme/default/icon_button/pressed_icon_button.tres" id="3_3k2um"]
 
 [resource]
 BackgroundPanel/base_type = &"PanelContainer"
 BackgroundPanel/styles/panel = ExtResource("1_4b18h")
+HeaderPanel/base_type = &"PanelContainer"
+HeaderPanel/styles/panel = ExtResource("2_fk0dw")
 HeaderVBox/base_type = &"VBoxContainer"
 HeaderVBox/constants/separation = 2
 IconButton/base_type = &"Button"
