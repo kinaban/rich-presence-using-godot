@@ -247,6 +247,7 @@ horizontal_alignment = 1
 script = ExtResource("4_7mycd")
 
 [node name="About" parent="." unique_id=1838511933 instance=ExtResource("6_5vw27")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
@@ -260,6 +261,7 @@ resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m
 script = ExtResource("3_h2yge")
 wait_time = 3.0
 
+[connection signal="pressed" from="VBoxContainer/Header/HBoxContainer/AboutButton" to="." method="_on_about_button_pressed"]
 [connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/AppId/AppIdEdit" to="." method="_on_app_id_edit_editing_toggled"]
 [connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/AppName/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
 [connection signal="item_selected" from="VBoxContainer/ScrollContainer/MarginContainer/content/Process/ProcessOption" to="." method="_on_process_option_item_selected"]

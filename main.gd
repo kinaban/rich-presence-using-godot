@@ -22,6 +22,8 @@ var _start_time: int
 @onready var small_image_edit: LineEdit = %SmallImageEdit
 @onready var enable_button: CheckButton = %EnableButton
 
+@onready var about: PanelContainer = %About
+
 
 func _ready() -> void:
 	app_id_edit.text = presence_config.app_id
@@ -253,3 +255,7 @@ func update_activity() -> void:
 
 func _on_refresh_timer_timeout() -> void:
 	refresh()
+
+
+func _on_about_button_pressed() -> void:
+	about.show()
