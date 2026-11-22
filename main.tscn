@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c540tykisoxl0" path="res://src/resource_plus/config_resource_preloader.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bj2h5y6m4ft1k" path="res://src/control_plus/option_button_plus.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://cxg54ms3xbe8w" path="res://src/version_label.gd" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://d1o8sdn6jh7nf" path="res://src/about/about.tscn" id="6_5vw27"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lux1s"]
 bg_color = Color(0.11372549, 0.13333334, 0.16078432, 1)
@@ -249,6 +250,10 @@ size_flags_vertical = 10
 text = "v0.1.0"
 horizontal_alignment = 1
 script = ExtResource("4_7mycd")
+
+[node name="About" parent="." unique_id=1838511933 instance=ExtResource("6_5vw27")]
+visible = false
+layout_mode = 2
 
 [node name="RefreshTimer" type="Timer" parent="." unique_id=600934904]
 unique_name_in_owner = true
