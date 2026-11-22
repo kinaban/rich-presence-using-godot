@@ -30,6 +30,7 @@ expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer/Header" unique_id=1551088609]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "About"
 horizontal_alignment = 1
 
