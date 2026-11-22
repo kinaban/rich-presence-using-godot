@@ -60,3 +60,20 @@ horizontal_alignment = 1
 [node name="ContributorsDescription" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=2142038253]
 layout_mode = 2
 text = "- Robert Sardilla (Creator)"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1335865490]
+layout_mode = 2
+
+[node name="DependenciesHeading2" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1520890501]
+layout_mode = 2
+theme_type_variation = &"Heading2"
+text = "Dependencies"
+horizontal_alignment = 1
+
+[node name="GodotDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=684703324]
+layout_mode = 2
+bbcode_enabled = true
+text = "Game Engine made by \"Godot-v4.7.2\" contributors from [color=aqua][url=https://godotengine.org/license/]Godotengine[/url][/color]."
+fit_content = true
+horizontal_alignment = 1
