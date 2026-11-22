@@ -97,3 +97,4 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="meta_clicked" from="VBoxContainer/MarginContainer/VBoxContainer/GodotDescription" to="." method="_on_godot_description_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/MarginContainer/VBoxContainer/DiscordPluginDescription" to="." method="_on_discord_plugin_description_meta_clicked"]
