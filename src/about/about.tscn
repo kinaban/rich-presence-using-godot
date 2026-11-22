@@ -77,14 +77,14 @@ horizontal_alignment = 1
 [node name="GodotDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=684703324]
 layout_mode = 2
 bbcode_enabled = true
-text = "Game Engine made by \"Godot-v4.7.2\" contributors from [color=aqua][url=https://godotengine.org/license/]Godotengine[/url][/color]."
+text = "Game Engine made by \"Godot-v4.7.2\" contributors from [color=aqua][url=https://godotengine.org/license/]godotengine.org[/url][/color]."
 fit_content = true
 horizontal_alignment = 1
 
 [node name="DiscordPluginDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1352949623]
 layout_mode = 2
 bbcode_enabled = true
-text = "Discord Rich Presence plugin made by \"SlayHorizon\" from [color=aqua][url=https://github.com/SlayHorizon/discord-rich-presence-godot/blob/main/LICENSE]GitHub[/url][/color]."
+text = "Discord Rich Presence plugin made by \"SlayHorizon\" from [color=aqua][url=https://github.com/SlayHorizon/discord-rich-presence-godot/blob/main/LICENSE]github.com[/url][/color]."
 fit_content = true
 horizontal_alignment = 1
 
