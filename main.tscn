@@ -37,7 +37,7 @@ theme_type_variation = &"HeaderPanel"
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header" unique_id=2058182113]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/Header/HBoxContainer" unique_id=1521905930]
+[node name="AboutButton" type="Button" parent="VBoxContainer/Header/HBoxContainer" unique_id=1521905930]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 theme_type_variation = &"IconButton"
