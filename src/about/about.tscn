@@ -77,3 +77,17 @@ bbcode_enabled = true
 text = "Game Engine made by \"Godot-v4.7.2\" contributors from [color=aqua][url=https://godotengine.org/license/]Godotengine[/url][/color]."
 fit_content = true
 horizontal_alignment = 1
+
+[node name="DiscordPluginDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1352949623]
+layout_mode = 2
+bbcode_enabled = true
+text = "Discord Rich Presence plugin made by \"SlayHorizon\" from [color=aqua][url=https://github.com/SlayHorizon/discord-rich-presence-godot/blob/main/LICENSE]GitHub[/url][/color]."
+fit_content = true
+horizontal_alignment = 1
+
+[node name="KenneyGameIconsDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=661040781]
+layout_mode = 2
+bbcode_enabled = true
+text = "Game Icons pack made by \"Kenney Vleugels\" from [color=aqua][url=https://kenney.nl/assets/game-icons]kenney.nl[/url][/color]."
+fit_content = true
+horizontal_alignment = 1
