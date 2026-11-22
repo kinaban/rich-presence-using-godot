@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://dvria4v4ayew2" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Resource" uid="uid://dhg8yctepbdw1" path="res://src/profile/profile_config_resource.tres" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://dswym7mpel1mx" path="res://src/control_plus/line_edit_plus.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cvxna600l8t2w" path="res://src/about/about_icon.tres" id="2_272bh"]
 [ext_resource type="Script" uid="uid://c540tykisoxl0" path="res://src/resource_plus/config_resource_preloader.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bj2h5y6m4ft1k" path="res://src/control_plus/option_button_plus.gd" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://cxg54ms3xbe8w" path="res://src/version_label.gd" id="4_7mycd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sykd2"]
-bg_color = Color(0.21176471, 0.23921569, 0.2901961, 1)
+[ext_resource type="PackedScene" uid="uid://d1o8sdn6jh7nf" path="res://src/about/about.tscn" id="6_5vw27"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lquwl"]
 
@@ -23,31 +22,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_sykd2")
+theme_type_variation = &"BackgroundPanel"
 script = ExtResource("1_ig7tw")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1696722011]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=735216727]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer" unique_id=1316118763]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_type_variation = &"HeaderPanel"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header" unique_id=2058182113]
+layout_mode = 2
+
+[node name="AboutButton" type="Button" parent="VBoxContainer/Header/HBoxContainer" unique_id=1521905930]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+theme_type_variation = &"IconButton"
+icon = ExtResource("2_272bh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=992425452]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=1696722011]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="content" type="VBoxContainer" parent="MarginContainer" unique_id=599035564]
+[node name="content" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=599035564]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="AppId" type="VBoxContainer" parent="MarginContainer/content" unique_id=1580553074]
+[node name="AppId" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1580553074]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/AppId" unique_id=557923054]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/AppId" unique_id=557923054]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "App ID:"
 
-[node name="AppIdEdit" type="LineEdit" parent="MarginContainer/content/AppId" unique_id=595419863]
+[node name="AppIdEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/content/AppId" unique_id=595419863]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -56,17 +81,17 @@ clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
-[node name="AppName" type="VBoxContainer" parent="MarginContainer/content" unique_id=830314189]
+[node name="AppName" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=830314189]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/AppName" unique_id=67856633]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/AppName" unique_id=67856633]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "App Name (Optional):"
 
-[node name="AppNameEdit" type="LineEdit" parent="MarginContainer/content/AppName" unique_id=6039421]
+[node name="AppNameEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/content/AppName" unique_id=6039421]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -75,17 +100,17 @@ clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
-[node name="Process" type="VBoxContainer" parent="MarginContainer/content" unique_id=193172358]
+[node name="Process" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=193172358]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/Process" unique_id=2054825480]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/Process" unique_id=2054825480]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "Process (Optional):"
 
-[node name="ProcessOption" type="OptionButton" parent="MarginContainer/content/Process" unique_id=321175961]
+[node name="ProcessOption" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/content/Process" unique_id=321175961]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -101,17 +126,17 @@ popup/item_0/id = 0
 script = ExtResource("3_lquwl")
 popup_maximum_height = 400
 
-[node name="Details" type="VBoxContainer" parent="MarginContainer/content" unique_id=1483189830]
+[node name="Details" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1483189830]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/Details" unique_id=1967500008]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/Details" unique_id=1967500008]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "Details (Optiona):"
 
-[node name="DetailsEdit" type="LineEdit" parent="MarginContainer/content/Details" unique_id=1699511620]
+[node name="DetailsEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/content/Details" unique_id=1699511620]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -120,17 +145,17 @@ clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
-[node name="State" type="VBoxContainer" parent="MarginContainer/content" unique_id=1063856438]
+[node name="State" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1063856438]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/State" unique_id=783703977]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/State" unique_id=783703977]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "State (Optional):"
 
-[node name="StateEdit" type="LineEdit" parent="MarginContainer/content/State" unique_id=1324984199]
+[node name="StateEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/content/State" unique_id=1324984199]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Character level, or some other status"
@@ -138,17 +163,17 @@ clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
-[node name="LargeImage" type="VBoxContainer" parent="MarginContainer/content" unique_id=1298375967]
+[node name="LargeImage" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1298375967]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/LargeImage" unique_id=88203196]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/LargeImage" unique_id=88203196]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "Large Image (Optional):"
 
-[node name="LargeImageEdit" type="LineEdit" parent="MarginContainer/content/LargeImage" unique_id=1938082098]
+[node name="LargeImageEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/content/LargeImage" unique_id=1938082098]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -157,17 +182,17 @@ clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
-[node name="SmallImage" type="VBoxContainer" parent="MarginContainer/content" unique_id=1611423413]
+[node name="SmallImage" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1611423413]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/SmallImage" unique_id=2066267398]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/SmallImage" unique_id=2066267398]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "Small Image (Optional):"
 
-[node name="SmallImageEdit" type="LineEdit" parent="MarginContainer/content/SmallImage" unique_id=1693107716]
+[node name="SmallImageEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/content/SmallImage" unique_id=1693107716]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -176,17 +201,17 @@ clear_button_enabled = true
 caret_blink = true
 script = ExtResource("2_1bvp3")
 
-[node name="Timestamp" type="VBoxContainer" parent="MarginContainer/content" unique_id=1651636688]
+[node name="Timestamp" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1651636688]
 layout_mode = 2
 theme_type_variation = &"HeaderVBox"
 
-[node name="Header" type="Label" parent="MarginContainer/content/Timestamp" unique_id=1356097393]
+[node name="Header" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content/Timestamp" unique_id=1356097393]
 layout_mode = 2
 theme_type_variation = &"SmallLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lquwl")
 text = "Start time:"
 
-[node name="TimestampOption" type="OptionButton" parent="MarginContainer/content/Timestamp" unique_id=1435060952]
+[node name="TimestampOption" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/content/Timestamp" unique_id=1435060952]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
@@ -198,28 +223,33 @@ popup/item_0/disabled = true
 popup/item_1/text = "Current time"
 popup/item_1/id = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/content" unique_id=1834969722]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1834969722]
 layout_mode = 2
 
-[node name="UpdateButton" type="Button" parent="MarginContainer/content/HBoxContainer" unique_id=1883143830]
+[node name="UpdateButton" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/content/HBoxContainer" unique_id=1883143830]
 custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Update "
 
-[node name="EnableButton" type="CheckButton" parent="MarginContainer/content/HBoxContainer" unique_id=34334525]
+[node name="EnableButton" type="CheckButton" parent="VBoxContainer/ScrollContainer/MarginContainer/content/HBoxContainer" unique_id=34334525]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Enable"
 
-[node name="VersionLabel" type="Label" parent="MarginContainer/content" unique_id=1578114895]
+[node name="VersionLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/content" unique_id=1578114895]
 layout_mode = 2
 size_flags_vertical = 10
 text = "v0.1.0"
 horizontal_alignment = 1
 script = ExtResource("4_7mycd")
+
+[node name="About" parent="." unique_id=1838511933 instance=ExtResource("6_5vw27")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
 [node name="RefreshTimer" type="Timer" parent="." unique_id=600934904]
 unique_name_in_owner = true
@@ -231,21 +261,14 @@ resources = [PackedStringArray("profile_config_resource"), [ExtResource("2_0xm2m
 script = ExtResource("3_h2yge")
 wait_time = 3.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2089481789]
-visible = false
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer" unique_id=2071718963]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-
-[connection signal="editing_toggled" from="MarginContainer/content/AppId/AppIdEdit" to="." method="_on_app_id_edit_editing_toggled"]
-[connection signal="editing_toggled" from="MarginContainer/content/AppName/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
-[connection signal="item_selected" from="MarginContainer/content/Process/ProcessOption" to="." method="_on_process_option_item_selected"]
-[connection signal="editing_toggled" from="MarginContainer/content/Details/DetailsEdit" to="." method="_on_details_edit_editing_toggled"]
-[connection signal="editing_toggled" from="MarginContainer/content/State/StateEdit" to="." method="_on_state_edit_editing_toggled"]
-[connection signal="editing_toggled" from="MarginContainer/content/LargeImage/LargeImageEdit" to="." method="_on_large_image_edit_editing_toggled"]
-[connection signal="editing_toggled" from="MarginContainer/content/SmallImage/SmallImageEdit" to="." method="_on_small_image_edit_editing_toggled"]
-[connection signal="pressed" from="MarginContainer/content/HBoxContainer/UpdateButton" to="." method="_on_update_button_pressed"]
-[connection signal="toggled" from="MarginContainer/content/HBoxContainer/EnableButton" to="." method="_on_enable_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/Header/HBoxContainer/AboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/AppId/AppIdEdit" to="." method="_on_app_id_edit_editing_toggled"]
+[connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/AppName/AppNameEdit" to="." method="_on_app_name_edit_editing_toggled"]
+[connection signal="item_selected" from="VBoxContainer/ScrollContainer/MarginContainer/content/Process/ProcessOption" to="." method="_on_process_option_item_selected"]
+[connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/Details/DetailsEdit" to="." method="_on_details_edit_editing_toggled"]
+[connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/State/StateEdit" to="." method="_on_state_edit_editing_toggled"]
+[connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/LargeImage/LargeImageEdit" to="." method="_on_large_image_edit_editing_toggled"]
+[connection signal="editing_toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/SmallImage/SmallImageEdit" to="." method="_on_small_image_edit_editing_toggled"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/content/HBoxContainer/UpdateButton" to="." method="_on_update_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/MarginContainer/content/HBoxContainer/EnableButton" to="." method="_on_enable_button_toggled"]
 [connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]

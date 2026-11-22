@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://d1o8sdn6jh7nf"]
+
+[ext_resource type="Script" uid="uid://dj7q8amm6n7on" path="res://src/about/about.gd" id="1_71w7w"]
+[ext_resource type="Texture2D" uid="uid://b0h1v6g0i6gqv" path="res://src/about/close_icon.tres" id="1_hos5j"]
+
+[node name="About" type="PanelContainer" unique_id=1838511933]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"BackgroundPanel"
+script = ExtResource("1_71w7w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1209085884]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer" unique_id=1667348496]
+layout_mode = 2
+theme_type_variation = &"HeaderPanel"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/Header" unique_id=770133883]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"IconButton"
+icon = ExtResource("1_hos5j")
+expand_icon = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Header" unique_id=1551088609]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "About"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1340562996]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1536827529]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Description" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1858499268]
+layout_mode = 2
+text = "    	Rich Presence Using Godot (RPUG) is an app for showing custom Discord rich presence through accessible graphical user interface."
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1599763102]
+layout_mode = 2
+
+[node name="ContributorsHeading2" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=737189627]
+layout_mode = 2
+theme_type_variation = &"Heading2"
+text = "Contributors"
+horizontal_alignment = 1
+
+[node name="ContributorsDescription" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=2142038253]
+layout_mode = 2
+text = "- Robert Sardilla (Creator)"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1335865490]
+layout_mode = 2
+
+[node name="DependenciesHeading2" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1520890501]
+layout_mode = 2
+theme_type_variation = &"Heading2"
+text = "Dependencies"
+horizontal_alignment = 1
+
+[node name="GodotDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=684703324]
+layout_mode = 2
+bbcode_enabled = true
+text = "Game Engine made by \"Godot-v4.7.2\" contributors from [color=aqua][url=https://godotengine.org/license/]godotengine.org[/url][/color]."
+fit_content = true
+horizontal_alignment = 1
+
+[node name="DiscordPluginDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1352949623]
+layout_mode = 2
+bbcode_enabled = true
+text = "Discord Rich Presence plugin made by \"SlayHorizon\" from [color=aqua][url=https://github.com/SlayHorizon/discord-rich-presence-godot/blob/main/LICENSE]github.com[/url][/color]."
+fit_content = true
+horizontal_alignment = 1
+
+[node name="KenneyGameIconsDescription" type="RichTextLabel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=661040781]
+layout_mode = 2
+bbcode_enabled = true
+text = "Game Icons pack made by \"Kenney Vleugels\" from [color=aqua][url=https://kenney.nl/assets/game-icons]kenney.nl[/url][/color]."
+fit_content = true
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="meta_clicked" from="VBoxContainer/MarginContainer/VBoxContainer/GodotDescription" to="." method="_on_godot_description_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/MarginContainer/VBoxContainer/DiscordPluginDescription" to="." method="_on_discord_plugin_description_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/MarginContainer/VBoxContainer/KenneyGameIconsDescription" to="." method="_on_kenney_game_icons_description_meta_clicked"]
