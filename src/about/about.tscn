@@ -45,5 +45,5 @@ size_flags_vertical = 3
 
 [node name="Description" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1858499268]
 layout_mode = 2
-text = "    	Rich Presence Using Godot is an app for showing custom Discord rich presence through accessible graphical user interface."
+text = "    	Rich Presence Using Godot (RPUG) is an app for showing custom Discord rich presence through accessible graphical user interface."
 autowrap_mode = 3
