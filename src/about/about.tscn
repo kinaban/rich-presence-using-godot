@@ -51,9 +51,9 @@ autowrap_mode = 3
 [node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1599763102]
 layout_mode = 2
 
-[node name="ContributorsTitle" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=737189627]
+[node name="ContributorsHeading2" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=737189627]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_type_variation = &"Heading2"
 text = "Contributors"
 horizontal_alignment = 1
 
