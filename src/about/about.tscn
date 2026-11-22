@@ -47,3 +47,16 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "    	Rich Presence Using Godot (RPUG) is an app for showing custom Discord rich presence through accessible graphical user interface."
 autowrap_mode = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1599763102]
+layout_mode = 2
+
+[node name="ContributorsTitle" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=737189627]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Contributors"
+horizontal_alignment = 1
+
+[node name="ContributorsDescription" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=2142038253]
+layout_mode = 2
+text = "- Robert Sardilla (Creator)"
