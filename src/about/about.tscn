@@ -93,3 +93,5 @@ bbcode_enabled = true
 text = "Game Icons pack made by \"Kenney Vleugels\" from [color=aqua][url=https://kenney.nl/assets/game-icons]kenney.nl[/url][/color]."
 fit_content = true
 horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]
