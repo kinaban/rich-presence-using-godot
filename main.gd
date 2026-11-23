@@ -199,6 +199,8 @@ func _on_update_button_pressed() -> void:
 func update_activity() -> void:
 	# This allows empty paths to pass as allowed
 	var is_process_allowed := presence_config.process_path.is_empty() or _is_selected_running
+	
+	# If this is printing too often, then something is excessively calling it.
 	prints("Update activity:", is_process_allowed)
 	
 	if presence_config.is_enabled == false or is_process_allowed == false:
