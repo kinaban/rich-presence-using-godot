@@ -10,6 +10,7 @@ var pid_path_table: Dictionary[String, String]
 var path_pid_list_table: Dictionary[String, PackedStringArray]
 var path_option_id_table: Dictionary[String, int]
 
+var _selected_process_item: int = -1## The item ID in the process option
 var _is_selected_running := false
 var _start_time: int
 
@@ -100,9 +101,11 @@ func refresh() -> void:
 	var elapsed := Time.get_ticks_msec() - start
 	print_verbose("Refresh execution time (msec): %d" % elapsed)
 	
-	var new_selected_running := _is_path_running(presence_config.process_path)
+	var process_path := presence_config.process_path
+	var new_selected_running := _is_path_running(process_path)
 	
-	if new_selected_running != _is_selected_running:
+	if new_selected_running != _is_selected_running or process_option.selected != _selected_process_item:
+		_selected_process_item = process_option.selected
 		_is_selected_running = new_selected_running
 		_start_time = 0
 		update_activity()
@@ -196,6 +199,8 @@ func _on_update_button_pressed() -> void:
 func update_activity() -> void:
 	# This allows empty paths to pass as allowed
 	var is_process_allowed := presence_config.process_path.is_empty() or _is_selected_running
+	
+	# If this is printing too often, then something is excessively calling it.
 	prints("Update activity:", is_process_allowed)
 	
 	if presence_config.is_enabled == false or is_process_allowed == false:
