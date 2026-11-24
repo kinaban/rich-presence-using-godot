@@ -9,9 +9,11 @@ Prepared by: [Robert Sardilla]<br>
 This project was inspired by CustomRP by maximmax42.<br>
 
 ## Getting started
-The first step is to grab your copy from [Releases](https://github.com/kinaban/rich-presence-using-godot/releases) and select the latest stable version available for your Operating System.
+First, this app requires discord app to be present in your desktop.
 
-Configure the app to your liking with the following guide:
+The second step is to grab your copy from [Releases](https://github.com/kinaban/rich-presence-using-godot/releases) and select the latest stable version available for your Operating System.
+
+The third step is to configure this app to your liking using the following guide:
 1. App ID: This can be generated through [Discord's Developer Portal](https://discord.com/developers/applications), and using the Application ID to configure the app.
 2. App Name: This will supersede the name you've given your app in the developer portal, and is useful if you want to reuse the same app id for different games.
 3. Process (Optional): By default this will make this app show presence when enabled without having to detect any app, but, by selecting from the list of currently running apps in your desktop, the app would only show presence when it detects your target program.
