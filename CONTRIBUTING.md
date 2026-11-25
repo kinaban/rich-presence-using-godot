@@ -58,7 +58,7 @@ PR Titles must begin with one of the following:
 	- Example/s:
 		- Fix presence not showing up in Windows 11
 		- Fix a typo in the `README.md` description
-	- Change
+- Change
 	- Description: Replacing an existing feature which does not increase its functionality or changing a documentation which does not add new information
 	- Example/s:
 		- Change configuration text to gray
