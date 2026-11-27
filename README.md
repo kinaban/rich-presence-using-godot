@@ -1,4 +1,8 @@
-# Rich Presence Using Godot
+<div align = "center">
+	<img src = "assets/rpug_icon/rpug_icon.png" width = "120" height = "120">
+	<h3>Rich Presence Using Godot (RPUG)</h3>
+</div>
+
 Parent Repository: Godot 4.6.X Minimal Template (v0.2.0)<br>
 Version: 0.1.0<br>
 Supported Engine Version: [4.7.2]<br>
