@@ -32,7 +32,7 @@ Finally, click the enable button to show your presence to your friends.
 ## Contributing and Technical Documentation
 To help with the development of the project, or if you're just interested with the implementation details, check out [CONTRIBUTING.md](CONTRIBUTING.md) to learn more.
 
-To see what we're currently working on, see [RPUG Project](https://github.com/orgs/kinaban/projects/5) to cheer us or something.
+To see what we're currently working on, see [RPUG's Kanban](https://github.com/orgs/kinaban/projects/5) to cheer us or something.
 
 ## Attribution
 This project uses third party dependencies which are under permissive license but may require their license text to be in the final product documentation. See [docs/attribution.md](docs/attribution.md) for more details.
